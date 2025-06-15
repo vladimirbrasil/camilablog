@@ -1,39 +1,4 @@
 {
-  "articles": [
-    {
-      "id": "primeiro-artigo-da-camila",
-      "title": "Primeiro Artigo da Camila",
-      "author": "Camila Fachin",
-      "date": "2025-06-15",
-      "readingTime": 1,
-      "heroImage": {
-        "fileName": "primeiro-artigo-da-camila-image-0.png",
-        "driveUrl": "https://drive.google.com/thumbnail?id=1dobEYMR8H_4VtXQ2wU9r5u-SAE5r0oN1&sz=w1000",
-        "githubPath": "images/primeiro-artigo-da-camila-image-0.png",
-        "githubUrl": "https://raw.githubusercontent.com/vladimirbrasil/camilablog/main/images/primeiro-artigo-da-camila-image-0.png",
-        "fileId": "1dobEYMR8H_4VtXQ2wU9r5u-SAE5r0oN1",
-        "altText": "Hero image for Primeiro Artigo da Camila",
-        "caption": "Hero image for Primeiro Artigo da Camila"
-      },
-      "lastUpdated": "2025-06-15T22:08:17.091Z"
-    },
-    {
-      "id": "novo-artigo-da-camila",
-      "title": "Novo Artigo da Camila",
-      "author": "Camila Fachin",
-      "date": "2025-06-15",
-      "readingTime": 1,
-      "heroImage": {
-        "fileName": "novo-artigo-da-camila-image-0.png",
-        "driveUrl": "https://drive.google.com/thumbnail?id=1KYjkZLWoGncDrh-cAfNJ_DaoDvy0kba_&sz=w1000",
-        "githubPath": "images/novo-artigo-da-camila-image-0.png",
-        "githubUrl": "https://raw.githubusercontent.com/vladimirbrasil/camilablog/main/images/novo-artigo-da-camila-image-0.png",
-        "fileId": "1KYjkZLWoGncDrh-cAfNJ_DaoDvy0kba_",
-        "altText": "Hero image for Novo Artigo da Camila",
-        "caption": "Hero image for Novo Artigo da Camila"
-      },
-      "lastUpdated": "2025-06-15T22:08:47.848Z"
-    }
-  ],
-  "lastUpdated": "2025-06-15T22:08:51.660Z"
+  "articles": [],
+  "lastUpdated": "2025-06-15T22:13:44.410Z"
 }
