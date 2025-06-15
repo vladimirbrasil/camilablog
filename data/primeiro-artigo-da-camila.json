@@ -3,29 +3,38 @@
   "title": "Primeiro Artigo da Camila",
   "author": "Camila Fachin",
   "date": "2025-06-15",
-  "content": "<p>Como foi o primeiro artigo da Camila? </p>\n<p>Este é um teste do primeiro artigo da Camila.</p>\n<p><figure><img src=\"https://raw.githubusercontent.com/vladimirbrasil/camilablog/main/images/primeiro-artigo-da-camila-image-0.jpg\" alt=\"Teste de alt text\" /><figcaption>Teste de alt text</figcaption></figure></p>\n<p>Teste de um <a href=\"https://google.com\" target=\"_blank\">link</a>.</p>\n",
+  "content": "<p></p>\n<p>Como foi o primeiro artigo da Camila? </p>\n<p>Este é um teste do primeiro artigo da Camila.</p>\n<p><figure><img src=\"https://raw.githubusercontent.com/vladimirbrasil/camilablog/main/images/primeiro-artigo-da-camila-image-1.jpg\" alt=\"Teste de alt text\" /><figcaption>Teste de alt text</figcaption></figure></p>\n<p>Teste de um <a href=\"https://google.com\" target=\"_blank\">link</a>.</p>\n",
   "images": [
     {
-      "fileName": "primeiro-artigo-da-camila-image-0.jpg",
-      "driveUrl": "https://drive.google.com/thumbnail?id=1H96G7JPHAKN4Bmy5cod_zaBBP8zB6uMe&sz=w1000",
-      "githubPath": "images/primeiro-artigo-da-camila-image-0.jpg",
-      "githubUrl": "https://raw.githubusercontent.com/vladimirbrasil/camilablog/main/images/primeiro-artigo-da-camila-image-0.jpg",
-      "fileId": "1H96G7JPHAKN4Bmy5cod_zaBBP8zB6uMe",
+      "fileName": "primeiro-artigo-da-camila-image-0.png",
+      "driveUrl": "https://drive.google.com/thumbnail?id=1dobEYMR8H_4VtXQ2wU9r5u-SAE5r0oN1&sz=w1000",
+      "githubPath": "images/primeiro-artigo-da-camila-image-0.png",
+      "githubUrl": "https://raw.githubusercontent.com/vladimirbrasil/camilablog/main/images/primeiro-artigo-da-camila-image-0.png",
+      "fileId": "1dobEYMR8H_4VtXQ2wU9r5u-SAE5r0oN1",
+      "altText": "Hero image for Primeiro Artigo da Camila",
+      "caption": "Hero image for Primeiro Artigo da Camila"
+    },
+    {
+      "fileName": "primeiro-artigo-da-camila-image-1.jpg",
+      "driveUrl": "https://drive.google.com/thumbnail?id=1cO-2m3PXRJV-3O--pK8BfCOZM-bHM5A_&sz=w1000",
+      "githubPath": "images/primeiro-artigo-da-camila-image-1.jpg",
+      "githubUrl": "https://raw.githubusercontent.com/vladimirbrasil/camilablog/main/images/primeiro-artigo-da-camila-image-1.jpg",
+      "fileId": "1cO-2m3PXRJV-3O--pK8BfCOZM-bHM5A_",
       "altText": "Teste de alt text",
       "caption": "Teste de alt text"
     }
   ],
   "heroImage": {
-    "fileName": "primeiro-artigo-da-camila-image-1.png",
-    "driveUrl": "https://drive.google.com/thumbnail?id=1fkuSnoESMPeLmbhx8wbdylZMDHsgqCoq&sz=w1000",
-    "githubPath": "images/primeiro-artigo-da-camila-image-1.png",
-    "githubUrl": "https://raw.githubusercontent.com/vladimirbrasil/camilablog/main/images/primeiro-artigo-da-camila-image-1.png",
-    "fileId": "1fkuSnoESMPeLmbhx8wbdylZMDHsgqCoq",
-    "altText": "",
-    "caption": ""
+    "fileName": "primeiro-artigo-da-camila-image-0.png",
+    "driveUrl": "https://drive.google.com/thumbnail?id=1dobEYMR8H_4VtXQ2wU9r5u-SAE5r0oN1&sz=w1000",
+    "githubPath": "images/primeiro-artigo-da-camila-image-0.png",
+    "githubUrl": "https://raw.githubusercontent.com/vladimirbrasil/camilablog/main/images/primeiro-artigo-da-camila-image-0.png",
+    "fileId": "1dobEYMR8H_4VtXQ2wU9r5u-SAE5r0oN1",
+    "altText": "Hero image for Primeiro Artigo da Camila",
+    "caption": "Hero image for Primeiro Artigo da Camila"
   },
   "readingTime": 1,
   "wordCount": 24,
-  "lastUpdated": "2025-06-15T22:03:20.064Z",
-  "contentHash": "cca936d0ce925038f2c10ae0fe93032d"
+  "lastUpdated": "2025-06-15T22:08:10.190Z",
+  "contentHash": "13284ea7630df121e2000d11e8971beb"
 }
