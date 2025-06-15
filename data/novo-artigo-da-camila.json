@@ -1,0 +1,21 @@
+{
+  "id": "novo-artigo-da-camila",
+  "title": "Novo Artigo da Camila",
+  "author": "Camila Fachin",
+  "date": "2025-06-15",
+  "content": "<p>Mais um artigo da Camila, desta vez diretamente de sua conta.</p>\n<p>Está tudo bem com o artigo?</p>\n",
+  "images": [],
+  "heroImage": {
+    "fileName": "novo-artigo-da-camila-image-0.png",
+    "driveUrl": "https://drive.google.com/thumbnail?id=1QsevagpLw3DjJKSpnKhn4zQ3VZLCWvMl&sz=w1000",
+    "githubPath": "images/novo-artigo-da-camila-image-0.png",
+    "githubUrl": "https://raw.githubusercontent.com/vladimirbrasil/camilablog/main/images/novo-artigo-da-camila-image-0.png",
+    "fileId": "1QsevagpLw3DjJKSpnKhn4zQ3VZLCWvMl",
+    "altText": "",
+    "caption": ""
+  },
+  "readingTime": 1,
+  "wordCount": 21,
+  "lastUpdated": "2025-06-15T22:07:48.099Z",
+  "contentHash": "cc7c1c25276664cc35ff0fd4189d4f81"
+}
