@@ -1,4 +1,14 @@
 {
-  "articles": [],
-  "lastUpdated": "2025-06-15T21:53:32.200Z"
+  "articles": [
+    {
+      "id": "primeiro-artigo-da-camila",
+      "title": "Primeiro Artigo da Camila",
+      "author": "Camila Fachin",
+      "date": "2025-06-15",
+      "readingTime": 1,
+      "heroImage": null,
+      "lastUpdated": "2025-06-15T21:59:51.322Z"
+    }
+  ],
+  "lastUpdated": "2025-06-15T21:59:57.194Z"
 }
