@@ -1,13 +1,22 @@
 {
   "articles": [
     {
-      "id": "minha-linda-jornada-para-a-maternidade-um-sonho-realizado",
-      "title": "Minha Linda Jornada para a Maternidade: Um Sonho Realizado",
+      "id": "minha-linda-jornada-rumo-a-maternidade",
+      "title": "Minha Linda Jornada Rumo à Maternidade",
       "author": "Camila Fachin",
       "date": "2025-06-15",
       "readingTime": 1,
-      "lastUpdated": "2025-06-16T01:51:06.629Z"
+      "heroImage": {
+        "fileName": "minha-linda-jornada-rumo-a-maternidade-image-0.png",
+        "driveUrl": "https://drive.google.com/thumbnail?id=1Pu-IWVdxtFjpycu2NFvQlXzck7At9vwU&sz=w1000",
+        "githubPath": "images/minha-linda-jornada-rumo-a-maternidade-image-0.png",
+        "githubUrl": "https://raw.githubusercontent.com/vladimirbrasil/camilablog/main/images/minha-linda-jornada-rumo-a-maternidade-image-0.png",
+        "fileId": "1Pu-IWVdxtFjpycu2NFvQlXzck7At9vwU",
+        "altText": "",
+        "caption": ""
+      },
+      "lastUpdated": "2025-06-16T02:04:32.923Z"
     }
   ],
-  "lastUpdated": "2025-06-16T01:51:19.172Z"
+  "lastUpdated": "2025-06-16T02:04:36.817Z"
 }
