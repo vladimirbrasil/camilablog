@@ -3,19 +3,29 @@
   "title": "Minha Linda Jornada Rumo à Maternidade",
   "author": "Camila Fachin",
   "date": "2025-06-15",
-  "content": "<p>A minha linda jornada para chegar à tão sonhada maternidade.</p>\n<p>Sempre digo que sempre foi linda porque, desde o primeiro momento, eu sempre soube que um dia seria mamãe.</p>\n<p>Foram alguns bons anos, em torno de 10 anos, 9 cirurgias de endometriose, uma equipe de mais de 30 médicos, 3 clínicas, acupunturista, várias tecnologias, muitas mudanças de vida, nutricionistas e, assim, quando o meu Deus maior mandou o sinal, ela chegou!</p>\n<p>Chegou meu laço 🎀 de fita linda, carinhosa, um encontro de alma e foi aí que 3 corações se encontraram. Hoje eu digo que faria tudo novamente, porque minha família é o meu maior sonho realizado ❤️.</p>\n",
-  "images": [],
+  "content": "<p><figure><img src=\"https://raw.githubusercontent.com/vladimirbrasil/camilablog/main/images/minha-linda-jornada-rumo-a-maternidade-image-0.jpg\" alt=\"\" /></figure></p>\n<p>Minha Linda Jornada Rumo à Maternidade</p>\n<p>A minha linda jornada para chegar à tão sonhada maternidade.</p>\n<p>Sempre digo que sempre foi linda porque, desde o primeiro momento, eu sempre soube que um dia seria mamãe.</p>\n<p>Foram alguns bons anos, em torno de 10 anos, 9 cirurgias de endometriose, uma equipe de mais de 30 médicos, 3 clínicas, acupunturista, várias tecnologias, muitas mudanças de vida, nutricionistas e, assim, quando o meu Deus maior mandou o sinal, ela chegou!</p>\n<p>Chegou meu laço 🎀 de fita linda, carinhosa, um encontro de almas e foi aí que 3 corações se encontraram. Hoje eu digo que faria tudo novamente, porque minha família é o meu maior sonho realizado ❤️.</p>\n",
+  "images": [
+    {
+      "fileName": "minha-linda-jornada-rumo-a-maternidade-image-0.jpg",
+      "driveUrl": "https://drive.google.com/thumbnail?id=1X0yYlNkQcB_CTlHPEweml1mDv7GG_FwF&sz=w1000",
+      "githubPath": "images/minha-linda-jornada-rumo-a-maternidade-image-0.jpg",
+      "githubUrl": "https://raw.githubusercontent.com/vladimirbrasil/camilablog/main/images/minha-linda-jornada-rumo-a-maternidade-image-0.jpg",
+      "fileId": "1X0yYlNkQcB_CTlHPEweml1mDv7GG_FwF",
+      "altText": "",
+      "caption": ""
+    }
+  ],
   "heroImage": {
-    "fileName": "minha-linda-jornada-rumo-a-maternidade-image-0.png",
-    "driveUrl": "https://drive.google.com/thumbnail?id=1GTp4uMbdslhe-H-vxjliYNVPPUWfvp-J&sz=w1000",
-    "githubPath": "images/minha-linda-jornada-rumo-a-maternidade-image-0.png",
-    "githubUrl": "https://raw.githubusercontent.com/vladimirbrasil/camilablog/main/images/minha-linda-jornada-rumo-a-maternidade-image-0.png",
-    "fileId": "1GTp4uMbdslhe-H-vxjliYNVPPUWfvp-J",
+    "fileName": "minha-linda-jornada-rumo-a-maternidade-image-1.png",
+    "driveUrl": "https://drive.google.com/thumbnail?id=1nLUV5RajtCoE0u5m1saR-hHYGWuxqu5v&sz=w1000",
+    "githubPath": "images/minha-linda-jornada-rumo-a-maternidade-image-1.png",
+    "githubUrl": "https://raw.githubusercontent.com/vladimirbrasil/camilablog/main/images/minha-linda-jornada-rumo-a-maternidade-image-1.png",
+    "fileId": "1nLUV5RajtCoE0u5m1saR-hHYGWuxqu5v",
     "altText": "",
     "caption": ""
   },
   "readingTime": 1,
-  "wordCount": 114,
-  "lastUpdated": "2025-06-16T02:52:23.949Z",
-  "contentHash": "42ea798b1258fbd05ec659c7b514a209"
+  "wordCount": 120,
+  "lastUpdated": "2025-06-16T03:04:48.527Z",
+  "contentHash": "9ed8bb9d816703087dde67bdf8d19420"
 }
