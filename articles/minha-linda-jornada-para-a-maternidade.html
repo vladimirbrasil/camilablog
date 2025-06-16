@@ -1,0 +1,423 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minha Linda Jornada para a Maternidade - Blog da Camila Fachin</title>
+  <meta name="description" content="">
+  <meta name="author" content="Camila Fachin">
+  <meta property="og:title" content="Minha Linda Jornada para a Maternidade - Blog da Camila Fachin">
+  <meta property="og:description" content="">
+  <meta property="og:image" content="">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://blog.camilafachin.com/articles/minha-linda-jornada-para-a-maternidade.html">
+  <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
+  line-height: 1.58;
+  color: rgba(41, 41, 41, 1);
+  background-color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.header {
+  border-bottom: 1px solid rgba(230, 230, 230, 1);
+  padding: 25px 0;
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(20px);
+  background-color: rgba(255, 255, 255, 0.95);
+}
+.header-content {
+  max-width: 1192px;
+  margin: 0 auto;
+  padding: 0 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: rgba(41, 41, 41, 1);
+  text-decoration: none;
+  letter-spacing: -0.003em;
+}
+.nav-links {
+  display: flex;
+  gap: 32px;
+}
+.nav-links a {
+  font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: rgba(117, 117, 117, 1);
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 16px;
+  transition: color 0.15s ease;
+}
+.nav-links a:hover {
+  color: rgba(41, 41, 41, 1);
+}
+.container {
+  max-width: 728px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.loading {
+  text-align: center;
+  padding: 80px 0;
+  color: rgba(117, 117, 117, 1);
+  font-size: 18px;
+}
+.article-list {
+  padding: 48px 0;
+}
+.article-item {
+  border-bottom: 1px solid rgba(242, 242, 242, 1);
+  padding: 32px 0;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.article-item:hover {
+  transform: translateY(-1px);
+}
+.article-item:last-child {
+  border-bottom: none;
+}
+.article-date {
+  font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: rgba(117, 117, 117, 1);
+  font-size: 13px;
+  margin-bottom: 8px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.article-title {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.22;
+  margin-bottom: 8px;
+  color: rgba(41, 41, 41, 1);
+  letter-spacing: -0.012em;
+}
+.article-preview {
+  color: rgba(117, 117, 117, 1);
+  font-size: 16px;
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+.article-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: rgba(117, 117, 117, 1);
+  font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+.author-name {
+  font-weight: 400;
+  color: rgba(41, 41, 41, 1);
+}
+.reading-time {
+  color: rgba(117, 117, 117, 1);
+}
+.hero-image-container {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  margin-bottom: 48px;
+  height: 400px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f9fa;
+}
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.hero-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  color: white;
+  padding: 32px 24px 16px;
+  font-size: 14px;
+  font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  text-align: center;
+}
+.article-content-wrapper {
+  padding: 56px 0;
+}
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(26, 137, 23, 1);
+  text-decoration: none;
+  margin-bottom: 32px;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  transition: color 0.15s ease;
+}
+.back-button:hover {
+  color: rgba(21, 117, 19, 1);
+}
+.article-header {
+  margin-bottom: 48px;
+  text-align: left;
+}
+.article-header h1 {
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.04;
+  margin-bottom: 24px;
+  color: rgba(41, 41, 41, 1);
+  letter-spacing: -0.015em;
+}
+.article-header .meta {
+  color: rgba(117, 117, 117, 1);
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+.article-content {
+  font-size: 21px;
+  line-height: 1.58;
+  color: rgba(41, 41, 41, 1);
+  letter-spacing: -0.003em;
+}
+.article-content h1,
+.article-content h2,
+.article-content h3 {
+  margin: 48px 0 16px 0;
+  color: rgba(41, 41, 41, 1);
+  font-weight: 700;
+  letter-spacing: -0.022em;
+  line-height: 1.15;
+}
+.article-content h1 {
+  font-size: 34px;
+  margin-top: 56px;
+}
+.article-content h2 {
+  font-size: 28px;
+  margin-top: 48px;
+}
+.article-content h3 {
+  font-size: 24px;
+  margin-top: 40px;
+}
+.article-content p {
+  margin-bottom: 32px;
+  word-break: break-word;
+}
+.article-content figure {
+  margin: 40px 0;
+  text-align: center;
+}
+.article-content figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+  display: block;
+  margin: 0 auto;
+}
+.article-content figcaption {
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.4;
+  color: rgba(117, 117, 117, 1);
+  font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  text-align: center;
+  font-style: italic;
+}
+.article-content img:not(figure img) {
+  max-width: 100%;
+  height: auto;
+  margin: 40px 0;
+  border-radius: 6px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+  display: block;
+}
+.article-content strong {
+  font-weight: 700;
+  color: rgba(41, 41, 41, 1);
+}
+.article-content em {
+  font-style: italic;
+}
+.article-content blockquote {
+  border-left: 3px solid rgba(41, 41, 41, 1);
+  padding-left: 23px;
+  margin: 32px 0;
+  font-style: italic;
+  color: rgba(117, 117, 117, 1);
+  font-size: 21px;
+  line-height: 1.58;
+}
+.article-content code {
+  background-color: rgba(242, 242, 242, 1);
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+  font-size: 16px;
+  color: rgba(41, 41, 41, 1);
+}
+.article-content pre {
+  background-color: rgba(242, 242, 242, 1);
+  padding: 20px;
+  border-radius: 6px;
+  overflow-x: auto;
+  margin: 24px 0;
+}
+.article-content pre code {
+  background: none;
+  padding: 0;
+  font-size: 14px;
+}
+.footer {
+  border-top: 1px solid rgba(242, 242, 242, 1);
+  padding: 48px 0;
+  margin-top: 96px;
+  text-align: center;
+  color: rgba(117, 117, 117, 1);
+  font-size: 14px;
+  font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+@media (max-width: 768px) {
+  .header-content {
+    padding: 0 24px;
+  }
+  .container {
+    padding: 0 20px;
+  }
+  .logo {
+    font-size: 28px;
+  }
+  .nav-links {
+    gap: 24px;
+  }
+  .article-title {
+    font-size: 20px;
+  }
+  .hero-image-container {
+    height: 250px;
+  }
+  .article-header h1 {
+    font-size: 32px;
+    line-height: 1.1;
+  }
+  .article-content {
+    font-size: 19px;
+  }
+  .article-content h1 {
+    font-size: 28px;
+  }
+  .article-content h2 {
+    font-size: 24px;
+  }
+  .article-content h3 {
+    font-size: 21px;
+  }
+}
+@media (max-width: 480px) {
+  .header-content {
+    padding: 0 16px;
+  }
+  .container {
+    padding: 0 16px;
+  }
+  .hero-image-container {
+    height: 200px;
+  }
+  .article-header h1 {
+    font-size: 28px;
+  }
+  .article-content {
+    font-size: 18px;
+  }
+}
+.error {
+  text-align: center;
+  padding: 80px 0;
+  color: rgba(117, 117, 117, 1);
+}
+.error h2 {
+  color: rgba(41, 41, 41, 1);
+  margin-bottom: 16px;
+  font-size: 24px;
+  font-weight: 700;
+}
+::selection {
+  background-color: rgba(26, 137, 23, 0.1);
+}
+::-moz-selection {
+  background-color: rgba(26, 137, 23, 0.1);
+}
+</style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-content">
+      <a href="../index.html" class="logo">Camila Fachin</a>
+      <nav class="nav-links">
+        <a href="../index.html">Blog</a>
+        <a href="https://camilafachin.com" target="_blank">Portfolio</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    <div id="article-view" class="article-view">
+      
+      <div class="article-content-wrapper">
+        <a href="../index.html" class="back-button">← Back to all articles</a>
+        <div class="article-header">
+          <h1>Minha Linda Jornada para a Maternidade</h1>
+          <div class="meta">
+            <span class="author-name">Camila Fachin</span>
+            <span>·</span>
+            <span>June 14, 2025</span>
+            <span>·</span><span class="reading-time">1 min read</span>
+          </div>
+        </div>
+        <div class="article-content">
+          <p><figure><img src="https://raw.githubusercontent.com/vladimirbrasil/camilablog/main/images/minha-linda-jornada-para-a-maternidade-image-0.jpg" alt="" /></figure></p>
+<p>A minha linda jornada para chegar à tão sonhada maternidade.</p>
+<p>Sempre digo que sempre foi linda porque, desde o primeiro momento, eu sempre soube que um dia seria mamãe.</p>
+<p>Foram alguns bons anos, em torno de 10 anos, 9 cirurgias de endometriose, uma equipe de mais de 30 médicos, 3 clínicas, acupunturista, várias tecnologias, muitas mudanças de vida, nutricionistas e, assim, quando o meu Deus maior mandou o sinal, ela chegou!</p>
+<p>Chegou meu laço 🎀 de fita linda, carinhosa, um encontro de alma e foi aí que 3 corações se encontraram. Hoje, eu digo que faria tudo novamente, porque minha família é o meu maior sonho realizado ❤.</p>
+
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 Camila Fachin. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
