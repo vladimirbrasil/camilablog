@@ -1,0 +1,19 @@
+{
+  "id": "um-teste-de-artigo",
+  "title": "Um Teste de Artigo",
+  "author": "Camila Fachin",
+  "date": "2025-06-17",
+  "readingTime": 1,
+  "heroImage": {
+    "fileName": "um-teste-de-artigo-image-hero.png",
+    "githubPath": "images/um-teste-de-artigo-image-hero.png",
+    "githubUrl": "https://raw.githubusercontent.com/vladimirbrasil/camilablog/main/images/um-teste-de-artigo-image-hero.png",
+    "altText": "",
+    "caption": ""
+  },
+  "lastUpdated": "2025-06-17T18:03:33.720Z",
+  "wordCount": 3,
+  "content": "<p>Teste de <a href=\"https://www.google.com\" target=\"_blank\" rel=\"noopener noreferrer\">texto</a>.</p>\n",
+  "images": [],
+  "contentHash": "3a642146118686b4865440e264b36"
+}
