@@ -108,91 +108,63 @@ body { font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif; 
 }
 
     
-    /* === NEW: Medium-style Search Overlay CSS === */
-    .search-trigger-button {
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 5px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: rgba(117, 117, 117, 1);
+    /* === NEW: Medium-style Integrated Search Bar CSS === */
+    #searchbox-container {
+      /* This container will hold the search widget in the header */
+      margin-right: 24px;
     }
-    .search-trigger-button:hover {
-      color: rgba(41, 41, 41, 1);
+    .ais-SearchBox-form {
+      position: relative;
     }
-    .search-trigger-button svg {
-      width: 24px;
-      height: 24px;
+    .ais-SearchBox-input {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      border-radius: 99em; /* Pill shape */
+      padding: 8px 16px 8px 40px; /* Make room for the icon */
+      font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 15px;
+      width: 240px;
+      transition: all 0.2s ease-in-out;
     }
-    .search-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(255, 255, 255, 0.98);
-      backdrop-filter: blur(5px);
-      z-index: 200;
-      display: none; /* Hidden by default */
-      flex-direction: column;
-      align-items: center;
-      padding-top: 10vh;
-    }
-    .search-overlay.active {
-      display: flex; /* Shown with JS */
-    }
-    .close-search-button {
-      position: absolute;
-      top: 30px;
-      right: 40px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: rgba(117, 117, 117, 1);
-    }
-    .close-search-button:hover {
-      color: rgba(41, 41, 41, 1);
-    }
-    .close-search-button svg {
-      width: 28px;
-      height: 28px;
-    }
-    #searchbox-overlay .ais-SearchBox-input {
-      font-size: 2.5em;
-      border: none;
-      border-bottom: 2px solid rgba(230, 230, 230, 1);
-      background: transparent;
-      width: 100%;
-      max-width: 728px;
-      padding: 10px 0;
-      font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
-      font-weight: 400;
+    .ais-SearchBox-input:focus {
       outline: none;
-      border-radius: 0;
+      background-color: #fff;
+      border-color: #e0e0e0;
+      width: 280px; /* Slightly expand on focus */
     }
-    #searchbox-overlay .ais-SearchBox-input:focus {
-      border-bottom-color: rgba(41, 41, 41, 1);
-    }
-    #searchbox-overlay .ais-SearchBox-submit,
-    #searchbox-overlay .ais-SearchBox-reset {
-      display: none; /* Hide default Algolia icons */
-    }
-    #hits-container {
-      width: 100%;
-      max-width: 728px;
-      margin-top: 40px;
-      max-height: 70vh;
-      overflow-y: auto;
-    }
-    .ais-Hits-list { list-style: none; padding: 0; }
-    .ais-Hits-item { margin: 0; padding: 0; }
-
-    /* Hide original list when searching */
-    body.searching #article-list-container {
+    /* Hide the default searchbox icons */
+    .ais-SearchBox-submit,
+    .ais-SearchBox-reset {
       display: none;
     }
+
+    /* Style the search magnifying glass icon using a pseudo-element */
+    .ais-SearchBox-form::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 14px;
+      width: 20px;
+      height: 20px;
+      transform: translateY(-50%);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' viewBox='0 0 24 24'%3E%3Cpath fill='%236B6B6B' fill-rule='evenodd' d='M4.092 11.06a6.95 6.95 0 1 1 13.9 0 6.95 6.95 0 0 1-13.9 0m6.95-8.05a8.05 8.05 0 1 0 5.13 14.26l3.75 3.75a.56.56 0 1 0 .79-.79l-3.73-3.73A8.05 8.05 0 0 0 11.042 3z' clip-rule='evenodd'%3E%3C/path%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+      z-index: 1;
+      opacity: 0.6;
+    }
+
+    /* Logic to show/hide the main article list vs. search results */
+    .search-results-container {
+      display: none; /* Hide search results by default */
+    }
+    body.searching .search-results-container {
+      display: block; /* Show results when searching */
+    }
+    body.searching #article-list-container {
+      display: none; /* Hide main article list when searching */
+    }
+
     .ais-Highlight-highlighted {
         background-color: rgba(26, 137, 23, 0.1);
         font-style: normal;
@@ -200,24 +172,11 @@ body { font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif; 
   </style>
 </head>
 <body>
-
-  <div class="search-overlay" id="search-overlay">
-    <button class="close-search-button" id="close-search-button">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-    </button>
-    <div id="searchbox-overlay"></div>
-    <div id="hits-container">
-      <div id="hits"></div>
-    </div>
-  </div>
-
   <header class="header">
      <div class="header-content">
         <a href="/index.html" class="logo">Camila Fachin</a>
         <nav class="nav-links">
-          <button id="search-trigger-button" class="search-trigger-button" aria-label="Search">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-          </button>
+          <div id="searchbox-container"></div>
           <a href="/index.html">Blog</a>
           <a href="https://camilafachin.com" target="_blank">Portfolio</a>
         </nav>
@@ -225,6 +184,10 @@ body { font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif; 
   </header>
 
   <main class="container">
+    <div class="search-results-container">
+        <div id="hits" class="article-list"></div>
+    </div>
+    
     <div id="article-list-container">
       <div id="article-list" class="article-list">
       <div class="article-item">
@@ -260,16 +223,29 @@ body { font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif; 
 
     if (!ALGOLIA_APP_ID || ALGOLIA_APP_ID.startsWith('{{')) {
       console.log('Algolia search is not configured.');
-      document.getElementById('search-trigger-button').style.display = 'none';
+      document.getElementById('searchbox-container').style.display = 'none';
     } else {
       const searchClient = algoliasearch(ALGOLIA_APP_ID, ALGOLIA_SEARCH_KEY);
-      const search = instantsearch({ indexName: ALGOLIA_INDEX_NAME, searchClient });
+
+      const search = instantsearch({
+        indexName: ALGOLIA_INDEX_NAME,
+        searchClient,
+        // This logic adds a 'searching' class to the body when the user types a query
+        onStateChange({ uiState, setUiState }) {
+          if (uiState[ALGOLIA_INDEX_NAME] && uiState[ALGOLIA_INDEX_NAME].query) {
+            document.body.classList.add('searching');
+          } else {
+            document.body.classList.remove('searching');
+          }
+          setUiState(uiState);
+        },
+      });
 
       search.addWidgets([
-        // Render the search box inside the new overlay container
+        // Render the search box directly in the header
         instantsearch.widgets.searchBox({
-          container: '#searchbox-overlay',
-          placeholder: 'Search articles...',
+          container: '#searchbox-container',
+          placeholder: 'Search...',
         }),
 
         instantsearch.widgets.hits({
@@ -298,7 +274,6 @@ body { font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif; 
               `;
             },
             empty(results, { html }) {
-              if (!results.query) return ''; // Don't show "no results" when input is empty
               return html`<p style="text-align:center; padding: 40px 0;">No results for <q>${results.query}</q>.</p>`;
             },
           },
@@ -306,34 +281,6 @@ body { font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif; 
       ]);
 
       search.start();
-      
-      // --- NEW: Medium-style Search Interaction Logic ---
-      const searchTrigger = document.getElementById('search-trigger-button');
-      const searchOverlay = document.getElementById('search-overlay');
-      const closeButton = document.getElementById('close-search-button');
-      const searchInput = searchOverlay.querySelector('.ais-SearchBox-input');
-
-      const openSearch = () => {
-        searchOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Prevent scrolling background
-        searchInput.focus();
-      };
-
-      const closeSearch = () => {
-        searchOverlay.classList.remove('active');
-        document.body.style.overflow = ''; // Restore scrolling
-        // Clear the search query and results
-        search.helper.setQuery('').search();
-      };
-      
-      searchTrigger.addEventListener('click', openSearch);
-      closeButton.addEventListener('click', closeSearch);
-      
-      document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && searchOverlay.classList.contains('active')) {
-          closeSearch();
-        }
-      });
     }
   </script>
 </body>
