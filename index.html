@@ -6,11 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog da Camila Fachin</title>
   <meta name="description" content="Blog by Camila Fachin">
-  <meta property="og:title" content="Blog da Camila Fachin">
-  <meta property="og:description" content="Blog by Camila Fachin">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://blog.camilafachin.com">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@8/themes/satellite-min.css" />
   <style>
+    
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif; line-height: 1.58; color: rgba(41, 41, 41, 1); background-color: #fff; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 .header { border-bottom: 1px solid rgba(230, 230, 230, 1); padding: 25px 0; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px); position: sticky; top: 0; z-index: 100; }
@@ -108,21 +106,49 @@ body { font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif; 
   .article-header h1 { font-size: 28px; } 
   .article-content { font-size: 18px; } 
 }
-</style>
+
+    /* Additional styles for the search interface */
+    .search-container { 
+      padding: 48px 0 0; 
+      /* Hide search results container by default */
+      display: none;
+    }
+    .ais-InstantSearch { max-width: 1192px; margin: 0 auto; }
+    .ais-SearchBox-input { width: 100%; font-size: 1.5em; padding: 12px; border: 1px solid #ddd; border-radius: 4px; }
+    .ais-Hits-list { list-style: none; padding: 0; margin: 32px 0 0; }
+    .ais-Hits-item { margin: 0; padding: 0; }
+
+    /* NEW: When body has .searching class, hide original list and show search results */
+    body.searching #article-list-container {
+      display: none;
+    }
+    body.searching .search-container {
+      display: block;
+    }
+    .ais-Highlight-highlighted {
+        background-color: rgba(26, 137, 23, 0.1);
+        font-style: normal;
+    }
+  </style>
 </head>
 <body>
   <header class="header">
-    <div class="header-content">
-      <a href="/index.html" class="logo">Camila Fachin</a>
-      <nav class="nav-links">
-        <a href="/index.html">Blog</a>
-        <a href="https://camilafachin.com" target="_blank">Portfolio</a>
-      </nav>
-    </div>
+     <div class="header-content">
+        <a href="/index.html" class="logo">Camila Fachin</a>
+        <nav class="nav-links">
+          <div id="searchbox-container" style="margin-right: 32px;">
+             </div>
+          <a href="/index.html">Blog</a>
+          <a href="https://camilafachin.com" target="_blank">Portfolio</a>
+        </nav>
+      </div>
   </header>
   <main class="container">
-    <div id="article-list" class="article-list">
-      
+    <div class="search-container" id="search-results-container">
+      <div id="hits"></div>
+    </div>
+    <div id="article-list-container">
+      <div id="article-list" class="article-list">
       <div class="article-item">
         <a href="/articles/dez-anos-de-luta-e-amor-a-conquista-da-maternidade.html">
           <div class="article-image-container">
@@ -137,13 +163,86 @@ body { font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif; 
             </div>
           </div>
         </a>
-      </div>
+      </div></div>
     </div>
   </main>
   <footer class="footer">
-    <div class="container">
-      <p>© 2025 Camila Fachin. All rights reserved.</p>
-    </div>
+     <div class="container">
+       <p>© 2025 Camila Fachin. All rights reserved.</p>
+     </div>
   </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4"></script>
+  <script>
+    const ALGOLIA_APP_ID = 'GAYT43LOGW';
+    const ALGOLIA_SEARCH_KEY = '1fd79b56d5bf1629a7f60e5cd63f4e40';
+    const ALGOLIA_INDEX_NAME = 'camilablog_pt';
+
+    if (!ALGOLIA_APP_ID || ALGOLIA_APP_ID.startsWith('{{')) {
+      console.log('Algolia search is not configured.');
+      // Hide the search box container if not configured
+      document.getElementById('searchbox-container').style.display = 'none';
+    } else {
+      const searchClient = algoliasearch(ALGOLIA_APP_ID, ALGOLIA_SEARCH_KEY);
+
+      const search = instantsearch({
+        indexName: ALGOLIA_INDEX_NAME,
+        searchClient,
+        onStateChange({ uiState, setUiState }) {
+          // Toggle a class on the body based on search query presence
+          if (uiState[ALGOLIA_INDEX_NAME] && uiState[ALGOLIA_INDEX_NAME].query) {
+            document.body.classList.add('searching');
+          } else {
+            document.body.classList.remove('searching');
+          }
+          setUiState(uiState);
+        },
+      });
+
+      search.addWidgets([
+        instantsearch.widgets.searchBox({
+          container: '#searchbox-container',
+          placeholder: 'Search articles...',
+          showSubmit: false,
+          showReset: true,
+        }),
+
+        instantsearch.widgets.hits({
+          container: '#hits',
+          templates: {
+            item(hit, { html, components }) {
+              const heroHtml = hit.heroImage 
+                ? `<div class="article-image-container"><img src="${hit.heroImage}" alt="${hit.title}"></div>`
+                : `<div class="article-image-placeholder"></div>`;
+
+              return html`
+                <div class="article-item">
+                  <a href="${hit.url}">
+                    ${html(heroHtml)}
+                    <div class="article-text-content">
+                      <div class="article-date">${new Date(hit.date).toLocaleDateString('en-US', {month: 'short', day: 'numeric', year: 'numeric' })}</div>
+                      <h2 class="article-title">
+                        ${components.Highlight({ hit, attribute: 'title' })}
+                      </h2>
+                      <div class="article-meta">
+                        <span class="author-name">${hit.author}</span>
+                        ${hit.readingTime ? `<span>·</span><span class="reading-time">${hit.readingTime} min read</span>` : ''}
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              `;
+            },
+            empty(results, { html }) {
+              return html`<p style="text-align:center; padding: 40px 0;">No results for <q>${results.query}</q>.</p>`;
+            },
+          },
+        })
+      ]);
+
+      search.start();
+    }
+  </script>
 </body>
 </html>
