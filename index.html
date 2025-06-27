@@ -63,8 +63,41 @@ body { font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif; 
 .language-switcher span { margin: 0 8px; }
 ::selection { background-color: rgba(26, 137, 23, 0.1); }
 ::-moz-selection { background-color: rgba(26, 137, 23, 0.1); }
-@media (max-width: 768px) { .header-content { padding: 0 24px; } .container { padding: 0 20px; } .logo { font-size: 28px; } .nav-links { gap: 24px; } .article-title { font-size: 20px; } .hero-image-container { height: 250px; } .article-header h1 { font-size: 32px; line-height: 1.1; } .article-content { font-size: 19px; } .article-content h1 { font-size: 28px; } .article-content h2 { font-size: 24px; } .article-content h3 { font-size: 21px; } }
-@media (max-width: 480px) { .header-content { padding: 0 16px; } .container { padding: 0 16px; } .hero-image-container { height: 200px; } .article-header h1 { font-size: 28px; } .article-content { font-size: 18px; } }
+
+/* === NEW STYLES FOR INDEX PAGE LAYOUT === */
+.article-item a { display: flex; align-items: center; gap: 24px; }
+.article-text-content { flex: 1; }
+.article-image-container { flex-shrink: 0; width: 150px; height: 100px; background-color: #f8f9fa; border-radius: 4px; overflow: hidden; }
+.article-image-placeholder { flex-shrink: 0; width: 150px; }
+.article-image-container img { width: 100%; height: 100%; object-fit: cover; }
+/* === END OF NEW STYLES === */
+
+@media (max-width: 768px) { 
+  .header-content { padding: 0 24px; } 
+  .container { padding: 0 20px; } 
+  .logo { font-size: 28px; } 
+  .nav-links { gap: 24px; } 
+  .article-title { font-size: 20px; } 
+  .hero-image-container { height: 250px; } 
+  .article-header h1 { font-size: 32px; line-height: 1.1; } 
+  .article-content { font-size: 19px; } 
+  .article-content h1 { font-size: 28px; } 
+  .article-content h2 { font-size: 24px; } 
+  .article-content h3 { font-size: 21px; } 
+
+  /* === NEW RESPONSIVE STYLES FOR INDEX PAGE === */
+  .article-item a { flex-direction: column; align-items: stretch; }
+  .article-image-container { width: 100%; height: 180px; margin-bottom: 16px; }
+  .article-image-placeholder { display: none; } /* Hide placeholder on mobile */
+  /* === END OF NEW RESPONSIVE STYLES === */
+}
+@media (max-width: 480px) { 
+  .header-content { padding: 0 16px; } 
+  .container { padding: 0 16px; } 
+  .hero-image-container { height: 200px; } 
+  .article-header h1 { font-size: 28px; } 
+  .article-content { font-size: 18px; } 
+}
 </style>
 </head>
 <body>
@@ -80,16 +113,21 @@ body { font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif; 
   <main class="container">
     <div id="article-list" class="article-list">
       
-    <div class="article-item">
-      <a href="/articles/dez-anos-de-luta-e-amor-a-conquista-da-maternidade.html" style="text-decoration: none;">
-        <div class="article-date">Jun 16, 2025</div>
-        <h2 class="article-title">Dez Anos de Luta e Amor: A Conquista da Maternidade</h2>
-        <div class="article-meta">
-          <span class="author-name">Camila Fachin</span>
-          <span>·</span><span class="reading-time">1 min read</span>
-        </div>
-      </a>
-    </div>
+      <div class="article-item">
+        <a href="/articles/dez-anos-de-luta-e-amor-a-conquista-da-maternidade.html">
+          <div class="article-image-container">
+           <img src="https://raw.githubusercontent.com/vladimirbrasil/camilablog/main/images/dez-anos-de-luta-e-amor-a-conquista-da-maternidade-image-0.jpg" alt="Dez Anos de Luta e Amor: A Conquista da Maternidade">
+         </div>
+          <div class="article-text-content">
+            <div class="article-date">Jun 16, 2025</div>
+            <h2 class="article-title">Dez Anos de Luta e Amor: A Conquista da Maternidade</h2>
+            <div class="article-meta">
+              <span class="author-name">Camila Fachin</span>
+              <span>·</span><span class="reading-time">1 min read</span>
+            </div>
+          </div>
+        </a>
+      </div>
     </div>
   </main>
   <footer class="footer">
