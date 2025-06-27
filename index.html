@@ -23,7 +23,6 @@ body { font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif; 
 .article-list { padding: 48px 0; }
 .article-item { border-bottom: 1px solid rgba(242, 242, 242, 1); padding: 32px 0; }
 .article-item a { text-decoration: none; }
-.article-item:hover { transform: translateY(-1px); transition: transform 0.15s ease; }
 .article-item:last-child { border-bottom: none; }
 .article-date { font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: rgba(117, 117, 117, 1); font-size: 13px; margin-bottom: 8px; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; }
 .article-title { font-size: 22px; font-weight: 700; line-height: 1.22; margin-bottom: 8px; color: rgba(41, 41, 41, 1); letter-spacing: -0.012em; }
@@ -64,13 +63,22 @@ body { font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif; 
 ::selection { background-color: rgba(26, 137, 23, 0.1); }
 ::-moz-selection { background-color: rgba(26, 137, 23, 0.1); }
 
-/* === NEW STYLES FOR INDEX PAGE LAYOUT === */
+/* === STYLES FOR INDEX PAGE LAYOUT === */
 .article-item a { display: flex; align-items: center; gap: 24px; }
 .article-text-content { flex: 1; }
 .article-image-container { flex-shrink: 0; width: 150px; height: 100px; background-color: #f8f9fa; border-radius: 4px; overflow: hidden; }
 .article-image-placeholder { flex-shrink: 0; width: 150px; }
-.article-image-container img { width: 100%; height: 100%; object-fit: cover; }
-/* === END OF NEW STYLES === */
+.article-image-container img {
+  width: 100%; height: 100%; object-fit: cover;
+  /* FINAL EFFECT: Grayscale by default with a smooth transition */
+  filter: grayscale(100%);
+  transition: filter 0.3s ease-in-out;
+}
+/* On hover, make the image colorful */
+.article-item a:hover .article-image-container img {
+  filter: grayscale(0%);
+}
+/* === END OF INDEX PAGE STYLES === */
 
 @media (max-width: 768px) { 
   .header-content { padding: 0 24px; } 
@@ -85,11 +93,10 @@ body { font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif; 
   .article-content h2 { font-size: 24px; } 
   .article-content h3 { font-size: 21px; } 
 
-  /* === NEW RESPONSIVE STYLES FOR INDEX PAGE === */
+  /* === RESPONSIVE STYLES FOR INDEX PAGE === */
   .article-item a { flex-direction: column; align-items: stretch; }
   .article-image-container { width: 100%; height: 180px; margin-bottom: 16px; }
   .article-image-placeholder { display: none; } /* Hide placeholder on mobile */
-  /* === END OF NEW RESPONSIVE STYLES === */
 }
 @media (max-width: 480px) { 
   .header-content { padding: 0 16px; } 
