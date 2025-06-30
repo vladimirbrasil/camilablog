@@ -298,6 +298,19 @@ body { font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif; 
     z-index: 120;
   }
 }
+
+/* ======================================================================== */
+/* === NOVO: Faz o header da página de artigo voltar a ser horizontal no mobile === */
+/* ======================================================================== */
+@media (max-width: 768px) {
+  body:has(#article-view) .header-content {
+    flex-direction: row; /* Volta a ser uma linha */
+    justify-content: space-between; /* Espaça o logo e o link do portfólio */
+    align-items: center;
+    gap: 0; /* Remove o espaçamento extra que era usado para o layout empilhado */
+  }
+}
+
 </style>
 </head>
 <body>
@@ -331,11 +344,13 @@ body { font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif; 
 
         <div class="article-content">
           
+          
           <p>A minha linda jornada para chegar à tão sonhada maternidade.</p>
 <p>Sempre digo que foi linda porque, desde o primeiro momento, eu sempre soube que um dia seria mamãe.</p>
 <p>Foram alguns bons anos, em torno de 10 anos, 9 cirurgias de endometriose, uma equipe de mais de 30 médicos, 3 clínicas, acupunturista, várias tecnologias, muita mudança de vida, nutricionistas e, assim, quando o meu Deus maior mandou o sinal, ela chegou!</p>
 <p>Chegou meu laço 🎀 de fita linda, carinhosa, um encontro de alma e foi aí que 3 corações se encontraram. Hoje eu digo que faria tudo novamente, porque minha família é meu maior sonho realizado ❤.</p>
 
+        
         
         </div>
 
