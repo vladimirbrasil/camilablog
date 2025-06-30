@@ -18,14 +18,17 @@ body { font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif; 
 .header { border-bottom: 1px solid rgba(230, 230, 230, 1); padding: 25px 0; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px); position: sticky; top: 0; z-index: 100; }
 .header-content { max-width: 1192px; margin: 0 auto; padding: 0 64px; display: flex; justify-content: space-between; align-items: center; }
 .logo { font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 32px; font-weight: 700; color: rgba(41, 41, 41, 1); text-decoration: none; letter-spacing: -0.003em; }
-.nav-links { display: flex; gap: 32px; }
+.nav-links {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
 .nav-links a { font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: rgba(117, 117, 117, 1); text-decoration: none; font-weight: 400; font-size: 16px; transition: color 0.15s ease; }
 .nav-links a:hover { color: rgba(41, 41, 41, 1); }
 .container { max-width: 728px; margin: 0 auto; padding: 0 24px; }
 .article-list { padding: 48px 0; }
 .article-item { border-bottom: 1px solid rgba(242, 242, 242, 1); padding: 32px 0; }
 .article-item a { text-decoration: none; }
-.article-item:hover { transform: translateY(-1px); transition: transform 0.15s ease; }
 .article-item:last-child { border-bottom: none; }
 .article-date { font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: rgba(117, 117, 117, 1); font-size: 13px; margin-bottom: 8px; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; }
 .article-title { font-size: 22px; font-weight: 700; line-height: 1.22; margin-bottom: 8px; color: rgba(41, 41, 41, 1); letter-spacing: -0.012em; }
@@ -66,19 +69,118 @@ body { font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif; 
 ::selection { background-color: rgba(26, 137, 23, 0.1); }
 ::-moz-selection { background-color: rgba(26, 137, 23, 0.1); }
 
-/* === NEW STYLES FOR INDEX PAGE LAYOUT === */
-.article-item a { display: flex; align-items: center; gap: 24px; }
+/* === STYLES FOR INDEX PAGE LAYOUT & EFFECTS === */
+.article-item a {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease-in-out;
+}
+.article-item a:hover {
+  filter: grayscale(0%);
+}
 .article-text-content { flex: 1; }
 .article-image-container { flex-shrink: 0; width: 150px; height: 100px; background-color: #f8f9fa; border-radius: 4px; overflow: hidden; }
 .article-image-placeholder { flex-shrink: 0; width: 150px; }
 .article-image-container img { width: 100%; height: 100%; object-fit: cover; }
-/* === END OF NEW STYLES === */
+/* === END OF INDEX PAGE STYLES === */
 
-@media (max-width: 768px) { 
-  .header-content { padding: 0 24px; } 
+/* === NOVO: ESTILOS PARA O DROPDOWN DE IDIOMAS (v3 DESSATURADO) === */
+.language-dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-toggle {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 10px 4px 4px;
+  border-radius: 99px;
+  transition: background-color 0.2s ease;
+  border: 1px solid #e0e0e0;
+}
+.dropdown-toggle:hover {
+  background-color: #f5f5f5;
+}
+.dropdown-toggle img, .dropdown-menu img {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  /* ===> MODIFICADO: Dessatura a imagem e adiciona transição */
+  filter: saturate(40%);
+  transition: filter 0.25s ease-in-out;
+}
+.dropdown-toggle:hover img, .dropdown-menu a:hover img {
+  /* ===> NOVO: Restaura a cor no hover */
+  filter: saturate(100%);
+}
+.dropdown-toggle span {
+  font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+}
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 115%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 8px;
+  z-index: 110;
+  min-width: 100%;
+}
+.language-dropdown.active .dropdown-menu {
+  display: block;
+}
+.dropdown-menu a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+  text-decoration: none;
+}
+.dropdown-menu a:hover {
+  background-color: #f5f5f5;
+}
+.dropdown-menu img {
+  width: 28px; /* Mantém um tamanho ligeiramente maior no menu */
+  height: 28px;
+}
+.dropdown-menu span {
+  font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #333;
+}
+/* === FIM DOS NOVOS ESTILOS === */
+
+@media (max-width: 768px) {
+  /* THIS IS THE FIX: We change the header to a stacking column layout */
+  .header-content {
+    padding: 0 24px;
+    flex-direction: column; /* Stack logo and nav */
+    gap: 20px; /* Add space between logo and nav */
+  }
   .container { padding: 0 20px; } 
   .logo { font-size: 28px; } 
-  .nav-links { gap: 24px; } 
+  .nav-links { gap: 24px; }
+  
+  /* Make the search bar wider on mobile for better usability */
+  #searchbox-container .ais-SearchBox-input {
+    width: 320px;
+    max-width: 100%;
+  }
+
   .article-title { font-size: 20px; } 
   .hero-image-container { height: 250px; } 
   .article-header h1 { font-size: 32px; line-height: 1.1; } 
@@ -87,11 +189,10 @@ body { font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif; 
   .article-content h2 { font-size: 24px; } 
   .article-content h3 { font-size: 21px; } 
 
-  /* === NEW RESPONSIVE STYLES FOR INDEX PAGE === */
+  /* === RESPONSIVE STYLES FOR INDEX PAGE === */
   .article-item a { flex-direction: column; align-items: stretch; }
   .article-image-container { width: 100%; height: 180px; margin-bottom: 16px; }
-  .article-image-placeholder { display: none; } /* Hide placeholder on mobile */
-  /* === END OF NEW RESPONSIVE STYLES === */
+  .article-image-placeholder { display: none; }
 }
 @media (max-width: 480px) { 
   .header-content { padding: 0 16px; } 
@@ -100,25 +201,119 @@ body { font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif; 
   .article-header h1 { font-size: 28px; } 
   .article-content { font-size: 18px; } 
 }
+/* ======================================================= */
+/* === REFINED: Styles for Minimalist Search Icon (v2) === */
+/* ======================================================= */
+
+/* --- Default styles for Desktop --- */
+
+/* On desktop, the container is a standard block element */
+#searchbox-container {
+  display: block;
+  margin-right: 24px; /* Original spacing */
+}
+/* The toggle icons are not needed on desktop */
+.search-toggle-icon {
+  display: none;
+}
+
+/* --- Responsive styles for Mobile (screens 768px or narrower) --- */
+@media (max-width: 768px) {
+  /* Give the parent nav a bit of help with alignment */
+  .nav-links {
+    gap: 16px; /* Reduce gap to make more space */
+  }
+
+  /* STEP 1: On mobile, HIDE the entire search container by default */
+  #searchbox-container {
+    display: none;
+  }
+  
+  /* STEP 2: SHOW the search icon button */
+  #search-icon-btn {
+    display: inline-flex; /* Use flex for better alignment */
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* STEP 3: Define the ACTIVE overlay state when body.search-active */
+
+  /* Hide the logo and nav links GRACEFULLY with a transition */
+  /* ===> MODIFICADO: Adicione .language-dropdown a esta regra */
+  .search-active .logo,
+  .search-active .nav-links a,
+  .search-active .language-dropdown {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease-in-out;
+  }
+
+  /* Hide the search icon itself when the bar is open */
+  .search-active #search-icon-btn {
+    display: none;
+  }
+
+  /* BRING BACK the search container as a full-width overlay */
+  .search-active #searchbox-container {
+    display: block; /* Make it visible again */
+    position: absolute;
+    /* Position it to cover the header area */
+    top: 50%;
+    transform: translateY(-50%);
+    left: 24px;
+    right: 24px;
+    z-index: 110;
+    margin-right: 0; /* Override desktop margin */
+  }
+
+  /* Ensure the search form inside takes up the full width */
+  .search-active #searchbox-container .ais-SearchBox-form {
+    width: 100%;
+  }
+  .search-active #searchbox-container .ais-SearchBox-input {
+    /* The input should now expand correctly */
+    width: 100%;
+    max-width: 100%; /* Override any mobile-specific max-widths */
+  }
+
+  /* Show and position the close (X) button */
+  .search-active #search-close-btn {
+    display: inline-flex; /* Use flex for alignment */
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    /* Position it inside the input field area */
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 120;
+  }
+}
 </style>
 </head>
 <body>
   <header class="header">
-    <div class="header-content">
-      <a href="/index.html" class="logo">Camila Fachin</a>
-      <nav class="nav-links">
-        <a href="/index.html">Blog</a>
-        <a href="https://camilafachin.com" target="_blank">Portfolio</a>
-      </nav>
-    </div>
-  </header>
+   <div class="header-content">
+     <a href="/index.html" class="logo">Camila Fachin</a>
+     <nav class="nav-links">
+ 
+       <div class="language-flags"></div>
+       <a href="https://camilafachin.com" target="_blank">Business</a>
+       </nav>
+   </div>
+ </header>
   <main class="container">
     <div id="article-view" class="article-view">
-      
-      <div class="hero-image-container">
-        <img src="https://raw.githubusercontent.com/vladimirbrasil/camilablog/main/images/dez-anos-de-luta-e-amor-a-conquista-da-maternidade-image-0.jpg" alt="" class="hero-image">
-        
-      </div>
+      <div class="hero-image-container"><img src="https://raw.githubusercontent.com/vladimirbrasil/camilablog/main/images/dez-anos-de-luta-e-amor-a-conquista-da-maternidade-image-0.jpg" alt="" class="hero-image">  </div>
       <div class="article-content-wrapper">
         <a href="/index.html" class="back-button">← Back to all articles</a>
 
@@ -135,11 +330,13 @@ body { font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif; 
         
 
         <div class="article-content">
+          
           <p>A minha linda jornada para chegar à tão sonhada maternidade.</p>
 <p>Sempre digo que foi linda porque, desde o primeiro momento, eu sempre soube que um dia seria mamãe.</p>
 <p>Foram alguns bons anos, em torno de 10 anos, 9 cirurgias de endometriose, uma equipe de mais de 30 médicos, 3 clínicas, acupunturista, várias tecnologias, muita mudança de vida, nutricionistas e, assim, quando o meu Deus maior mandou o sinal, ela chegou!</p>
 <p>Chegou meu laço 🎀 de fita linda, carinhosa, um encontro de alma e foi aí que 3 corações se encontraram. Hoje eu digo que faria tudo novamente, porque minha família é meu maior sonho realizado ❤.</p>
 
+        
         </div>
 
       </div>
@@ -150,5 +347,34 @@ body { font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif; 
       <p>© 2025 Camila Fachin. All rights reserved.</p>
     </div>
   </footer>
+
+  <script>
+    /* ======================================================= */
+    /* === NOVO: JavaScript para o Dropdown de Idiomas === */
+    /* ======================================================= */
+    try {
+      document.addEventListener('DOMContentLoaded', function() {
+        const dropdown = document.getElementById('language-dropdown');
+
+        if (dropdown) {
+          // Abre/fecha o dropdown ao clicar no botão
+          dropdown.addEventListener('click', function(event) {
+            event.stopPropagation(); // Impede que o clique feche o menu imediatamente
+            this.classList.toggle('active');
+          });
+
+          // Fecha o dropdown se o usuário clicar fora dele
+          window.addEventListener('click', function(event) {
+            if (dropdown.classList.contains('active')) {
+              dropdown.classList.remove('active');
+            }
+          });
+        }
+      });
+    } catch (e) {
+      console.error("Error setting up language dropdown:", e);
+    }  
+  </script>
+
 </body>
 </html>
