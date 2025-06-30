@@ -82,28 +82,62 @@ body { font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif; 
 .article-image-container img { width: 100%; height: 100%; object-fit: cover; }
 /* === END OF INDEX PAGE STYLES === */
 
-/* === NOVO: ESTILOS PARA AS BANDEIRAS DE IDIOMA === */
-.language-flags {
+/* === NOVO: ESTILOS PARA O DROPDOWN DE IDIOMAS === */
+.language-dropdown {
+  position: relative; /* Essencial para posicionar o menu */
+  display: inline-block;
+}
+.dropdown-toggle {
+  cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 6px; /* Espaço entre a bandeira e a seta (se houver) */
+  padding: 4px;
+  border-radius: 99px; /* Torna o fundo circular se quisermos */
+  transition: background-color 0.2s ease;
 }
-.language-flags a {
-  display: inline-block;
-  line-height: 0; /* Remove espaço extra abaixo da imagem */
-  transition: opacity 0.2s ease, transform 0.2s ease;
+.dropdown-toggle:hover {
+  background-color: rgba(0, 0, 0, 0.05);
 }
-.language-flags a:hover {
-  opacity: 0.85;
-  transform: scale(1.1);
-}
-.language-flags img {
+.dropdown-toggle img {
   width: 26px;
   height: 26px;
   border-radius: 50%;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  object-fit: cover; /* Garante que a imagem cubra o círculo */
-  display: block; /* Remove espaço extra */
+  object-fit: cover;
+  display: block;
+}
+.dropdown-menu {
+  display: none; /* Oculto por padrão */
+  position: absolute;
+  top: 110%; /* Posição logo abaixo do botão */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 8px;
+  z-index: 110; /* Garante que fique acima de outros elementos */
+  min-width: 50px;
+  text-align: center;
+}
+.language-dropdown.active .dropdown-menu {
+  display: block; /* Mostra o menu quando o dropdown está ativo */
+}
+.dropdown-menu a {
+  display: block;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+.dropdown-menu a:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+.dropdown-menu img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 /* === FIM DOS NOVOS ESTILOS === */
 
@@ -329,9 +363,7 @@ body { font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif; 
       <div id="article-list" class="article-list">
       <div class="article-item">
         <a href="/articles/dez-anos-de-luta-e-amor-a-conquista-da-maternidade.html">
-          <div class="article-image-container">
-           <img src="https://raw.githubusercontent.com/vladimirbrasil/camilablog/main/images/dez-anos-de-luta-e-amor-a-conquista-da-maternidade-image-0.jpg" alt="Dez Anos de Luta e Amor: A Conquista da Maternidade">
-         </div>
+          <div class="article-image-container"><img src="https://raw.githubusercontent.com/vladimirbrasil/camilablog/main/images/dez-anos-de-luta-e-amor-a-conquista-da-maternidade-image-0.jpg" alt="Dez Anos de Luta e Amor: A Conquista da Maternidade"></div>
           <div class="article-text-content">
             <div class="article-date">Jun 16, 2025</div>
             <h2 class="article-title">Dez Anos de Luta e Amor: A Conquista da Maternidade</h2>
@@ -444,6 +476,32 @@ body { font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif; 
       });
     } catch(e) {
       console.error("Error setting up search toggle:", e);
+    }
+
+    /* ======================================================= */
+    /* === NOVO: JavaScript para o Dropdown de Idiomas === */
+    /* ======================================================= */
+    try {
+      document.addEventListener('DOMContentLoaded', function() {
+        const dropdown = document.getElementById('language-dropdown');
+
+        if (dropdown) {
+          // Abre/fecha o dropdown ao clicar no botão
+          dropdown.addEventListener('click', function(event) {
+            event.stopPropagation(); // Impede que o clique feche o menu imediatamente
+            this.classList.toggle('active');
+          });
+
+          // Fecha o dropdown se o usuário clicar fora dele
+          window.addEventListener('click', function(event) {
+            if (dropdown.classList.contains('active')) {
+              dropdown.classList.remove('active');
+            }
+          });
+        }
+      });
+    } catch (e) {
+      console.error("Error setting up language dropdown:", e);
     }
 
   </script>
