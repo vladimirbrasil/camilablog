@@ -82,6 +82,31 @@ body { font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif; 
 .article-image-container img { width: 100%; height: 100%; object-fit: cover; }
 /* === END OF INDEX PAGE STYLES === */
 
+/* === NOVO: ESTILOS PARA AS BANDEIRAS DE IDIOMA === */
+.language-flags {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.language-flags a {
+  display: inline-block;
+  line-height: 0; /* Remove espaço extra abaixo da imagem */
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.language-flags a:hover {
+  opacity: 0.85;
+  transform: scale(1.1);
+}
+.language-flags img {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  object-fit: cover; /* Garante que a imagem cubra o círculo */
+  display: block; /* Remove espaço extra */
+}
+/* === FIM DOS NOVOS ESTILOS === */
+
 @media (max-width: 768px) {
   /* THIS IS THE FIX: We change the header to a stacking column layout */
   .header-content {
@@ -274,28 +299,27 @@ body { font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif; 
 <body>
   <header class="header">
      <div class="header-content">
-        <a href="/index.html" class="logo">Camila Fachin</a>
-        <nav class="nav-links">
+       <a href="/index.html" class="logo">Camila Fachin</a>
+       <nav class="nav-links">
+ 
+        <div class="language-flags"></div>
 
-
-          <div class="search-widget-wrapper">
-            <button id="search-icon-btn" class="search-toggle-icon">
-              <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="rgba(117, 117, 117, 1)" fill-rule="evenodd" d="M4.092 11.06a6.95 6.95 0 1 1 13.9 0 6.95 6.95 0 0 1-13.9 0m6.95-8.05a8.05 8.05 0 1 0 5.13 14.26l3.75 3.75a.56.56 0 1 0 .79-.79l-3.73-3.73A8.05 8.05 0 0 0 11.042 3z" clip-rule="evenodd"></path></svg>
-            </button>
-
-            <div id="searchbox-container">
-              <button id="search-close-btn" class="search-toggle-icon">
-                <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="rgba(117, 117, 117, 1)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 6.75l-10.5 10.5M6.75 6.75l10.5 10.5"></path></svg>
-              </button>
-            </div>
-          </div>
-
-
-          <a href="/index.html">Blog</a>
-          <a href="https://camilafachin.com" target="_blank">Portfolio</a>
-        </nav>
-      </div>
-  </header>
+         <div class="search-widget-wrapper">
+           <button id="search-icon-btn" class="search-toggle-icon">
+             <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="rgba(117, 117, 117, 1)" fill-rule="evenodd" d="M4.092 11.06a6.95 6.95 0 1 1 13.9 0 6.95 6.95 0 0 1-13.9 0m6.95-8.05a8.05 8.05 0 1 0 5.13 14.26l3.75 3.75a.56.56 0 1 0 .79-.79l-3.73-3.73A8.05 8.05 0 0 0 11.042 3z" clip-rule="evenodd"></path></svg>
+           </button>
+ 
+           <div id="searchbox-container">
+             <button id="search-close-btn" class="search-toggle-icon">
+               <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="rgba(117, 117, 117, 1)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 6.75l-10.5 10.5M6.75 6.75l10.5 10.5"></path></svg>
+             </button>
+           </div>
+         </div>
+ 
+         <a href="https://camilafachin.com" target="_blank">Business</a>
+         </nav>
+     </div>
+   </header>
 
   <main class="container">
     <div id="hits-container" style="display: none;">
