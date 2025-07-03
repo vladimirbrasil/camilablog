@@ -4,11 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog da Camila Fachin</title>
-  <meta name="description" content="Blog by Camila Fachin">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@8/themes/satellite-min.css" />
+  <title>O sonho se realizou quando você chegou ! - Blog da Camila Fachin</title>
+  <meta name="description" content="">
+  <meta name="author" content="Camila Fachin">
+  <meta property="og:title" content="O sonho se realizou quando você chegou ! - Blog da Camila Fachin">
+  <meta property="og:description" content="">
+  <meta property="og:image" content="https://raw.githubusercontent.com/vladimirbrasil/camilablog/main/images/o-sonho-se-realizou-quando-voce-chegou-image-hero.png">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://blog.camilafachin.com/articles/o-sonho-se-realizou-quando-voce-chegou.html">
   <style>
-    
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif; line-height: 1.58; color: rgba(41, 41, 41, 1); background-color: #fff; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 .header { border-bottom: 1px solid rgba(230, 230, 230, 1); padding: 25px 0; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px); position: sticky; top: 0; z-index: 100; }
@@ -307,198 +311,51 @@ body { font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif; 
   }
 }
 
-
-    
-    /* === Medium-style Integrated Search Bar CSS (v3 - Final) === */
-    #searchbox-container {
-      margin-right: 24px;
-    }
-    .ais-SearchBox-form {
-      position: relative;
-      display: flex;
-      align-items: center;
-      height: 38px;
-    }
-    .ais-SearchBox-input {
-      background-color: #f9f9f9;
-      border: 1px solid #f9f9f9;
-      border-radius: 99em;
-      padding: 8px 16px 8px 40px;
-      font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      font-size: 15px;
-      height: 100%;
-      transition: all 0.2s ease-in-out;
-      
-      /* FIX #2: Give the input a fixed width to prevent layout shift */
-      width: 240px;
-
-      /* FIX #1: Use a background image for the icon for perfect alignment */
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' viewBox='0 0 24 24'%3E%3Cpath fill='%236B6B6B' fill-rule='evenodd' d='M4.092 11.06a6.95 6.95 0 1 1 13.9 0 6.95 6.95 0 0 1-13.9 0m6.95-8.05a8.05 8.05 0 1 0 5.13 14.26l3.75 3.75a.56.56 0 1 0 .79-.79l-3.73-3.73A8.05 8.05 0 0 0 11.042 3z' clip-rule='evenodd'%3E%3C/path%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: left 14px center;
-      background-size: 20px 20px;
-    }
-    .ais-SearchBox-input:focus {
-      outline: none;
-      background-color: #fff;
-      border-color: #e0e0e0;
-      /* The width no longer changes on focus */
-    }
-    
-    .ais-SearchBox-input::placeholder { color: #8a8a8a; opacity: 1; }
-    .ais-SearchBox-input::-webkit-input-placeholder { color: #8a8a8a; }
-    .ais-SearchBox-input::-moz-placeholder { color: #8a8a8a; opacity: 1; }
-    .ais-SearchBox-input:-ms-input-placeholder { color: #8a8a8a; }
-    .ais-SearchBox-form::before { display: none !important; }
-
-    .ais-SearchBox-submit,
-    .ais-SearchBox-reset {
-      display: none;
-    }
-    
-    /* We no longer need the ::before rule for the icon */
-
-    .ais-Highlight-highlighted {
-        background-color: rgba(26, 137, 23, 0.1);
-        font-style: normal;
-    }
-  </style>
+</style>
 </head>
 <body>
   <header class="header">
-     <div class="header-content">
-       <a href="/index.html" class="logo">Camila Fachin</a>
-       <nav class="nav-links">
+   <div class="header-content">
+     <a href="/index.html" class="logo">Camila Fachin</a>
+     <nav class="nav-links">
  
-        <div class="language-flags"></div>
-
-         <div class="search-widget-wrapper">
-           <button id="search-icon-btn" class="search-toggle-icon">
-             <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="rgba(117, 117, 117, 1)" fill-rule="evenodd" d="M4.092 11.06a6.95 6.95 0 1 1 13.9 0 6.95 6.95 0 0 1-13.9 0m6.95-8.05a8.05 8.05 0 1 0 5.13 14.26l3.75 3.75a.56.56 0 1 0 .79-.79l-3.73-3.73A8.05 8.05 0 0 0 11.042 3z" clip-rule="evenodd"></path></svg>
-           </button>
- 
-           <div id="searchbox-container">
-             <button id="search-close-btn" class="search-toggle-icon">
-               <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="rgba(117, 117, 117, 1)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 6.75l-10.5 10.5M6.75 6.75l10.5 10.5"></path></svg>
-             </button>
-           </div>
-         </div>
- 
-         <a href="https://camilafachin.com" target="_blank">Business</a>
-         </nav>
-     </div>
-   </header>
-
+       <div class="language-flags"></div>
+       <a href="https://camilafachin.com" target="_blank">Business</a>
+       </nav>
+   </div>
+ </header>
   <main class="container">
-    <div id="hits-container" style="display: none;">
-        <div id="hits" class="article-list"></div>
-    </div>
-    <div id="article-list-container">
-      <div id="article-list" class="article-list"><div class="article-item"><a href="/articles/o-sonho-se-realizou-quando-voce-chegou.html"><div class="article-image-container"><img src="https://raw.githubusercontent.com/vladimirbrasil/camilablog/main/images/o-sonho-se-realizou-quando-voce-chegou-image-hero.png" alt="O sonho se realizou quando você chegou !"></div><div class="article-text-content"><div class="article-date">Jul 2, 2025</div><h2 class="article-title">O sonho se realizou quando você chegou !</h2><div class="article-meta"><span class="author-name">Camila Fachin</span><span>·</span><span class="reading-time">1 min read</span></div></div></a></div><div class="article-item"><a href="/articles/dez-anos-de-luta-e-amor-a-conquista-da-maternidade.html"><div class="article-image-container"><img src="https://raw.githubusercontent.com/vladimirbrasil/camilablog/main/images/dez-anos-de-luta-e-amor-a-conquista-da-maternidade-image-0.jpg" alt="Dez Anos de Luta e Amor: A Conquista da Maternidade"></div><div class="article-text-content"><div class="article-date">Jun 16, 2025</div><h2 class="article-title">Dez Anos de Luta e Amor: A Conquista da Maternidade</h2><div class="article-meta"><span class="author-name">Camila Fachin</span><span>·</span><span class="reading-time">1 min read</span></div></div></a></div></div>
+    <div id="article-view" class="article-view">
+      <div class="hero-image-container"><img src="https://raw.githubusercontent.com/vladimirbrasil/camilablog/main/images/o-sonho-se-realizou-quando-voce-chegou-image-hero.png" alt="" class="hero-image">  </div>
+      <div class="article-content-wrapper">
+        <a href="/index.html" class="back-button">← Back to all articles</a>
+
+        <div class="article-header">
+          <h1>O sonho se realizou quando você chegou !</h1>
+          <div class="meta">
+            <span class="author-name">Camila Fachin</span>
+            <span>·</span>
+            <span>July 2, 2025</span>
+            <span>·</span><span class="reading-time">1 min read</span>
+          </div>
+        </div>
+        
+        
+
+        <div class="article-content">
+          
+        </div>
+
+      </div>
     </div>
   </main>
-
   <footer class="footer">
-     <div class="container">
-       <p>© 2025 Camila Fachin. All rights reserved.</p>
-     </div>
+    <div class="container">
+      <p>© 2025 Camila Fachin. All rights reserved.</p>
+    </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4"></script>
   <script>
-    const ALGOLIA_APP_ID = 'GAYT43LOGW';
-    const ALGOLIA_SEARCH_KEY = '1fd79b56d5bf1629a7f60e5cd63f4e40';
-    const ALGOLIA_INDEX_NAME = 'camilablog_pt';
-
-    if (!ALGOLIA_APP_ID || ALGOLIA_APP_ID.startsWith('{{')) {
-      document.getElementById('searchbox-container').style.display = 'none';
-    } else {
-      const searchClient = algoliasearch(ALGOLIA_APP_ID, ALGOLIA_SEARCH_KEY);
-      const hitsContainer = document.getElementById('hits-container');
-      const articleListContainer = document.getElementById('article-list-container');
-      const search = instantsearch({
-        indexName: ALGOLIA_INDEX_NAME,
-        searchClient,
-        onStateChange({ uiState, setUiState }) {
-          if (uiState[ALGOLIA_INDEX_NAME] && uiState[ALGOLIA_INDEX_NAME].query) {
-            hitsContainer.style.display = 'block';
-            articleListContainer.style.display = 'none';
-          } else {
-            hitsContainer.style.display = 'none';
-            articleListContainer.style.display = 'block';
-          }
-          setUiState(uiState);
-        },
-      });
-      search.addWidgets([
-        instantsearch.widgets.searchBox({
-          container: '#searchbox-container',
-          placeholder: 'Search...',
-        }),
-        instantsearch.widgets.hits({
-          container: '#hits',
-          templates: {
-            item(hit, { html, components }) {
-              const heroHtml = hit.heroImage 
-                ? `<div class="article-image-container"><img src="${hit.heroImage}" alt="${hit.title}"></div>`
-                : `<div class="article-image-placeholder"></div>`;
-              return html`
-                <div class="article-item">
-                  <a href="${hit.url}">
-                    ${html(heroHtml)}
-                    <div class="article-text-content">
-                      <div class="article-date">${new Date(hit.date).toLocaleDateString('en-US', {month: 'short', day: 'numeric', year: 'numeric' })}</div>
-                      <h2 class="article-title">
-                        ${components.Highlight({ hit, attribute: 'title' })}
-                      </h2>
-                      <div class="article-meta">
-                        <span class="author-name">${hit.author}</span>
-                        ${hit.readingTime ? html`<span>·</span><span class="reading-time">${hit.readingTime} min read</span>` : ''}
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              `;
-            },
-            empty(results, { html }) {
-              return html`<p style="text-align:center; padding: 40px 0;">No results for <q>${results.query}</q>.</p>`;
-            },
-          },
-        })
-      ]);
-      search.start();
-    }
-
-    /* =============================================== */
-    /* === NEW: JavaScript for Search Toggle Logic === */
-    /* =============================================== */
-    try {
-      document.addEventListener('DOMContentLoaded', function() {
-        const searchIconBtn = document.getElementById('search-icon-btn');
-        const searchCloseBtn = document.getElementById('search-close-btn');
-        const searchInput = document.querySelector('.ais-SearchBox-input');
-
-        if (searchIconBtn) {
-          searchIconBtn.addEventListener('click', function() {
-            document.body.classList.add('search-active');
-            // Focus the input for a better user experience
-            if (searchInput) {
-              searchInput.focus();
-            }
-          });
-        }
-
-        if (searchCloseBtn) {
-          searchCloseBtn.addEventListener('click', function() {
-            document.body.classList.remove('search-active');
-          });
-        }
-      });
-    } catch(e) {
-      console.error("Error setting up search toggle:", e);
-    }
-
     /* ======================================================= */
     /* === NOVO: JavaScript para o Dropdown de Idiomas === */
     /* ======================================================= */
@@ -523,8 +380,8 @@ body { font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif; 
       });
     } catch (e) {
       console.error("Error setting up language dropdown:", e);
-    }
-
+    }  
   </script>
+
 </body>
 </html>
