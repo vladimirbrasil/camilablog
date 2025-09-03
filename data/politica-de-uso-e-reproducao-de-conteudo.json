@@ -1,0 +1,19 @@
+{
+  "id": "politica-de-uso-e-reproducao-de-conteudo",
+  "title": "Política de Uso e Reprodução de Conteúdo",
+  "author": "Camila Fachin",
+  "date": "1990-01-01",
+  "readingTime": 2,
+  "heroImage": {
+    "fileName": "politica-de-uso-e-reproducao-image-0.jpg",
+    "githubPath": "images/politica-de-uso-e-reproducao-image-0.jpg",
+    "githubUrl": "https://raw.githubusercontent.com/vladimirbrasil/camilablog/main/images/politica-de-uso-e-reproducao-image-0.jpg",
+    "altText": "",
+    "caption": ""
+  },
+  "lastUpdated": "2025-09-03T16:17:15.591Z",
+  "wordCount": 332,
+  "content": "<p> </p>\n<p>   </p>\n<p>Olá! Fico muito feliz pelo seu interesse em meu trabalho. Todo o conteúdo deste blog é criado com o objetivo de compartilhar conhecimento e ajudar a comunidade.</p>\n<p>Para facilitar o compartilhamento, adotei uma política de uso baseada em Creative Commons, que explico em detalhes abaixo.</p>\n<h2>Em resumo, o que você PODE fazer:</h2>\n<li>✅ <strong>Republicar</strong> meus artigos na íntegra no seu blog, portal ou newsletter.</li>\n<li>✅ <strong>Citar</strong> trechos dos meus artigos em seus próprios trabalhos.</li>\n<li>✅ <strong>Compartilhar</strong> qualquer conteúdo em redes sociais e outros canais.</li>\n<p>Tudo o que peço em troca é que siga as condições de atribuição detalhadas a seguir.</p>\n<h2>Nossas Condições (As Regras)</h2>\n<p>Para garantir que o ecossistema de conteúdo continue saudável e que todos recebam o devido crédito, por favor, siga estas duas regras simples ao reproduzir um artigo:</p>\n<h3>👉 1. Atribuição Clara</h3>\n<p>Você deve dar o crédito de forma clara, mencionando meu nome (<strong>Camila Fachin</strong>) e incluindo um link visível para o artigo original.</p>\n<li><strong>Exemplo no início do artigo:</strong> <em>&quot;Este artigo foi escrito por Camila Fachin e publicado originalmente no blog Vladi.dev (com link para o artigo original).&quot;</em></li>\n<li><strong>Exemplo no final do artigo:</strong> <em>&quot;O artigo &#039;Título do Artigo&#039; (com link para o original) foi escrito por Camila Fachin.&quot;</em></li>\n<h3>👉 2. Link Canônico (Essencial para SEO)</h3>\n<p>Fico feliz que queira republicar! Além de citar a fonte, peço a gentileza de inserir a canonical tag no &lt;head&gt; da sua página. É uma linha de código que informa ao Google qual é a fonte original do conteúdo, evitando problemas de conteúdo duplicado para nós dois.</p>\n<p>Basta adicionar este código dentro da tag &lt;head&gt; do seu HTML:</p>\n<p>&lt;link rel=&quot;canonical&quot; href=&quot;https://ojs.sites.ufsc.br/index.php/avant/libraryFiles/downloadPublic/48&quot;&gt;</p>\n<p>Substitua https://ojs.sites.ufsc.br/index.php/avant/libraryFiles/downloadPublic/48 pela URL completa do post que você está republicando.</p>\n<h2>Dúvidas?</h2>\n<p>Se tiver qualquer pergunta sobre o uso do conteúdo ou quiser propor algum tipo de parceria, por favor, entre em <a href=\"mailto:contato@camilaross.com.br\" target=\"_blank\" rel=\"noopener noreferrer\">contato</a>: contato@camilaross.com.br.</p>\n<p>Agradeço muito por ajudar a compartilhar este conhecimento!</p>\n",
+  "images": [],
+  "contentHash": "a3678d1760d16ca46e39bfd"
+}

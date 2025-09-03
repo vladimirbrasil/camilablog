@@ -13,7 +13,7 @@
         "altText": "",
         "caption": ""
       },
-      "lastUpdated": "2025-09-02T17:02:09.230Z"
+      "lastUpdated": "2025-09-03T16:17:28.326Z"
     },
     {
       "id": "dez-anos-de-luta-e-amor-a-conquista-da-maternidade",
@@ -28,8 +28,23 @@
         "altText": "",
         "caption": ""
       },
-      "lastUpdated": "2025-09-02T17:02:21.623Z"
+      "lastUpdated": "2025-09-03T16:17:41.174Z"
+    },
+    {
+      "id": "politica-de-uso-e-reproducao-de-conteudo",
+      "title": "Política de Uso e Reprodução de Conteúdo",
+      "author": "Camila Fachin",
+      "date": "1990-01-01",
+      "readingTime": 2,
+      "heroImage": {
+        "fileName": "politica-de-uso-e-reproducao-image-0.jpg",
+        "githubPath": "images/politica-de-uso-e-reproducao-image-0.jpg",
+        "githubUrl": "https://raw.githubusercontent.com/vladimirbrasil/camilablog/main/images/politica-de-uso-e-reproducao-image-0.jpg",
+        "altText": "",
+        "caption": ""
+      },
+      "lastUpdated": "2025-09-03T16:17:15.591Z"
     }
   ],
-  "lastUpdated": "2025-09-02T17:02:21.850Z"
+  "lastUpdated": "2025-09-03T16:17:41.748Z"
 }
