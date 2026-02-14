@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog da Camila Fachin</title>
+    <link>https://blog.camilafachin.com/</link>
+    <description>Blog da Camila Fachin - Camila Fachin</description>
+    <language>pt</language>
+    <lastBuildDate>Sat, 14 Feb 2026 02:54:15 GMT</lastBuildDate>
+    <atom:link href="https://blog.camilafachin.com/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>O sonho se realizou quando você chegou !</title>
+      <link>https://blog.camilafachin.com/articles/o-sonho-se-realizou-quando-voce-chegou.html</link>
+      <guid isPermaLink="true">https://blog.camilafachin.com/articles/o-sonho-se-realizou-quando-voce-chegou.html</guid>
+      <pubDate>Thu, 03 Jul 2025 12:00:00 GMT</pubDate>
+      <dc:creator>Camila Fachin</dc:creator>
+      <description>&lt;img src=&quot;https://raw.githubusercontent.com/vladimirbrasil/camilablog/main/images/o-sonho-se-realizou-quando-voce-chegou-image-0.png&quot; alt=&quot;O sonho se realizou quando você chegou !&quot; /&gt;</description>
+    </item>
+    <item>
+      <title>Dez Anos de Luta e Amor: A Conquista da Maternidade</title>
+      <link>https://blog.camilafachin.com/articles/dez-anos-de-luta-e-amor-a-conquista-da-maternidade.html</link>
+      <guid isPermaLink="true">https://blog.camilafachin.com/articles/dez-anos-de-luta-e-amor-a-conquista-da-maternidade.html</guid>
+      <pubDate>Tue, 17 Jun 2025 12:00:00 GMT</pubDate>
+      <dc:creator>Camila Fachin</dc:creator>
+      <description>&lt;img src=&quot;https://raw.githubusercontent.com/vladimirbrasil/camilablog/main/images/dez-anos-de-luta-e-amor-a-conquista-da-maternidade-image-0.jpg&quot; alt=&quot;Dez Anos de Luta e Amor: A Conquista da Maternidade&quot; /&gt;</description>
+    </item>
+    <item>
+      <title>Política de Uso e Reprodução de Conteúdo</title>
+      <link>https://blog.camilafachin.com/articles/politica-de-uso-e-reproducao-de-conteudo.html</link>
+      <guid isPermaLink="true">https://blog.camilafachin.com/articles/politica-de-uso-e-reproducao-de-conteudo.html</guid>
+      <pubDate>Mon, 01 Jan 1990 12:00:00 GMT</pubDate>
+      <dc:creator>Camila Fachin</dc:creator>
+      <description>&lt;img src=&quot;https://raw.githubusercontent.com/vladimirbrasil/camilablog/main/images/politica-de-uso-e-reproducao-image-0.jpg&quot; alt=&quot;Política de Uso e Reprodução de Conteúdo&quot; /&gt;</description>
+    </item>
+  </channel>
+</rss>
