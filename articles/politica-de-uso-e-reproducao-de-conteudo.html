@@ -14,6 +14,7 @@
   <meta property="og:image:alt" content="Política de Uso e Reprodução de Conteúdo">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://blog.camilafachin.com/articles/politica-de-uso-e-reproducao-de-conteudo.html">
+  <link rel="alternate" type="application/rss+xml" title="Blog da Camila Fachin" href="https://blog.camilafachin.com/feed.xml" />
   <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif; line-height: 1.58; color: rgba(41, 41, 41, 1); background-color: #fff; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
@@ -313,10 +314,86 @@ body { font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif; 
   }
 }
 
+/* ======================================================================== */
+/* === Newsletter Subscription Form === */
+/* ======================================================================== */
+.newsletter-section {
+  background: rgba(26, 137, 23, 0.06);
+  border: 1px solid rgba(26, 137, 23, 0.15);
+  border-radius: 12px;
+  padding: 32px;
+  margin: 32px 0;
+  text-align: center;
+}
+.newsletter-section h3 {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: rgba(41, 41, 41, 1);
+  margin-bottom: 16px;
+}
+.newsletter-form {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.newsletter-form input[type="email"] {
+  padding: 10px 16px;
+  border: 1px solid rgba(230, 230, 230, 1);
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  min-width: 220px;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+.newsletter-form input[type="email"]:focus {
+  border-color: rgba(26, 137, 23, 0.5);
+}
+.newsletter-form select {
+  padding: 10px 12px;
+  border: 1px solid rgba(230, 230, 230, 1);
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #fff;
+  cursor: pointer;
+  outline: none;
+}
+.newsletter-form button {
+  padding: 10px 24px;
+  background: rgba(26, 137, 23, 1);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.newsletter-form button:hover {
+  background: rgba(21, 117, 19, 1);
+}
+.newsletter-form button:disabled {
+  background: rgba(117, 117, 117, 0.5);
+  cursor: not-allowed;
+}
+.newsletter-message {
+  margin-top: 12px;
+  font-size: 14px;
+  font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+.newsletter-message.success { color: rgba(26, 137, 23, 1); }
+.newsletter-message.error { color: #d32f2f; }
+
 </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Política de Uso e Reprodução de Conteúdo","author":{"@type":"Person","name":"Camila Fachin"},"datePublished":"1990-01-01","image":"https://raw.githubusercontent.com/vladimirbrasil/camilablog/main/images/politica-de-uso-e-reproducao-image-0.jpg","description":" "}</script>
 </head>
 <body>
+  
   <header class="header">
    <div class="header-content">
      <a href="/index.html" class="logo">Camila Fachin</a>
@@ -346,6 +423,7 @@ body { font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif; 
         
 
         <div class="article-content">
+          
           <p> </p>
 <p>   </p>
 <p>Olá! Fico muito feliz pelo seu interesse em meu trabalho. Todo o conteúdo deste blog é criado com o objetivo de compartilhar conhecimento e ajudar a comunidade.</p>
@@ -370,22 +448,82 @@ body { font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif; 
 <p>Se tiver qualquer pergunta sobre o uso do conteúdo ou quiser propor algum tipo de parceria, por favor, entre em <a href="mailto:contato@camilaross.com.br" target="_blank" rel="noopener noreferrer">contato</a>: contato@camilaross.com.br.</p>
 <p>Agradeço muito por ajudar a compartilhar este conhecimento!</p>
 
+        
         </div>
+
+         
 
       </div>
     </div>
   </main>
   <footer class="footer">
     <div class="container">
+        
+    <div class="newsletter-section">
+      <h3>Receba novos artigos por email</h3>
+      <form class="newsletter-form" id="newsletter-form" onsubmit="return false;">
+        <input type="email" id="newsletter-email" placeholder="Seu email" required>
+        <select id="newsletter-lang"><option value="pt" selected>Português</option></select>
+        <button type="button" id="newsletter-btn" onclick="submitNewsletter()">Inscrever-se</button>
+      </form>
+      <div class="newsletter-message" id="newsletter-message"></div>
+    </div>
+    <script>
+      function submitNewsletter() {
+        var email = document.getElementById('newsletter-email').value.trim();
+        var lang = document.getElementById('newsletter-lang').value;
+        var btn = document.getElementById('newsletter-btn');
+        var msg = document.getElementById('newsletter-message');
+        if (!email) return;
+        btn.disabled = true;
+        msg.textContent = '';
+        msg.className = 'newsletter-message';
+        var WEBAPP_URL = 'null';
+        fetch(WEBAPP_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: email, lang: lang, blogId: 'camilablog' }),
+          mode: 'no-cors'
+        }).then(function(r) {
+          if (r.type === 'opaque') {
+            msg.textContent = "Inscrição realizada com sucesso!";
+            msg.className = 'newsletter-message success';
+            document.getElementById('newsletter-email').value = '';
+          } else {
+            return r.json();
+          }
+        }).then(function(data) {
+          if (!data) return;
+          if (data.success) {
+            msg.textContent = "Inscrição realizada com sucesso!";
+            msg.className = 'newsletter-message success';
+            document.getElementById('newsletter-email').value = '';
+          } else if (data.error === 'already_subscribed') {
+            msg.textContent = "Este email já está inscrito.";
+            msg.className = 'newsletter-message error';
+          } else {
+            msg.textContent = "Erro ao inscrever. Tente novamente.";
+            msg.className = 'newsletter-message error';
+          }
+        }).catch(function() {
+          msg.textContent = "Inscrição realizada com sucesso!";
+          msg.className = 'newsletter-message success';
+          document.getElementById('newsletter-email').value = '';
+        }).finally(function() {
+          btn.disabled = false;
+        });
+      }
+    </script>
+  
         <div style="text-align: center; line-height: 1.6;">
-            <p>© 2025 Camila Fachin</p>
+            <p>© 2026 Camila Fachin</p>
             <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank" title="Licença Creative Commons Atribuição 4.0 Internacional">
                 <img alt="Licença Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
             </a>
             <p style="font-size: 0.9em; color: #666;">
                 Esta obra está licenciada sob <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>.
                 <br>
-                <a href="/articles/politica-de-uso-e-reproducao-de-conteudo.html">Saiba como republicar este conteúdo</a>.
+                <a href="/articles/politica-de-uso-e-reproducao-de-conteudo.html">Saiba como republicar este conteúdo</a>
             </p>
         </div>
     </div>
