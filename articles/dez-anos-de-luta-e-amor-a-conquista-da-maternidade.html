@@ -318,20 +318,69 @@ body { font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif; 
 /* === Newsletter Subscription Form === */
 /* ======================================================================== */
 .newsletter-section {
-  background: rgba(26, 137, 23, 0.06);
-  border: 1px solid rgba(26, 137, 23, 0.15);
-  border-radius: 12px;
-  padding: 32px;
-  margin: 32px 0;
+  border-top: 1px solid rgba(230, 230, 230, 1);
+  padding: 48px 0 32px;
+  margin: 48px 0 0;
   text-align: center;
 }
 .newsletter-section h3 {
-  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: 20px;
-  font-weight: 600;
+  font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
+  font-size: 24px;
+  font-weight: 700;
   color: rgba(41, 41, 41, 1);
-  margin-bottom: 16px;
+  letter-spacing: -0.015em;
+  margin-bottom: 20px;
 }
+.comments-section {
+  border-top: 1px solid rgba(230, 230, 230, 1);
+  padding-top: 48px;
+  margin-top: 80px;
+}
+.comments-section h2 {
+  font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: rgba(41, 41, 41, 1);
+  letter-spacing: -0.015em;
+  margin-bottom: 32px;
+}
+/* ======================================================================== */
+/* === Native Comments System === */
+/* ======================================================================== */
+.native-comments-container { margin-top: 24px; }
+.comment-item { 
+  border-bottom: 1px solid rgba(230, 230, 230, 0.6); 
+  padding: 16px 0; 
+}
+.comment-item.is-reply {
+  margin-left: 32px;
+  border-left: 2px solid rgba(230,230,230,1);
+  padding-left: 16px;
+}
+.comment-header { display: flex; justify-content: space-between; margin-bottom: 8px; }
+.comment-author { font-weight: 600; font-size: 15px; color: rgba(41, 41, 41, 1); }
+.comment-date { font-size: 13px; color: rgba(117, 117, 117, 1); }
+.comment-body { font-size: 16px; color: rgba(41, 41, 41, 0.9); line-height: 1.5; white-space: pre-wrap; }
+.comment-reply-btn {
+  background: none; border: none; color: rgba(26, 137, 23, 1); cursor: pointer;
+  font-size: 13px; font-weight: 500; padding: 0; margin-top: 8px;
+}
+
+.custom-comment-form { display: flex; flex-direction: column; gap: 12px; margin-top: 32px; background: #fbfbfb; padding: 24px; border-radius: 8px; border: 1px solid rgba(230, 230, 230, 0.6); }
+.custom-comment-form input, .custom-comment-form textarea {
+  width: 100%; padding: 12px; border: 1px solid rgba(230, 230, 230, 1); border-radius: 6px;
+  font-family: 'SF Pro Text', sans-serif; font-size: 15px;
+}
+.custom-comment-form textarea { resize: vertical; min-height: 100px; }
+.custom-comment-form button {
+  align-self: flex-start; padding: 10px 24px; background: rgba(26, 137, 23, 1);
+  color: #fff; border: none; border-radius: 6px; font-weight: 600; cursor: pointer;
+}
+.custom-comment-form button:disabled { background: #ccc; cursor: not-allowed; }
+.replying-to-badge {
+  display: none; background: #e8f5e9; color: #2e7d32; padding: 6px 12px; border-radius: 4px; font-size: 13px; margin-bottom: 12px; justify-content: space-between; align-items: center;
+}
+.cancel-reply-btn { cursor: pointer; font-weight: bold; margin-left: 8px; }
 .newsletter-form {
   display: flex;
   gap: 10px;
@@ -456,6 +505,7 @@ body { font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif; 
           
           
           
+          
           <p>A minha linda jornada para chegar à tão sonhada maternidade.</p>
 <p>Sempre digo que foi linda porque, desde o primeiro momento, eu sempre soube que um dia seria mamãe.</p>
 <p>Foram alguns bons anos, em torno de 10 anos, 9 cirurgias de endometriose, uma equipe de mais de 30 médicos, 3 clínicas, acupunturista, várias tecnologias, muita mudança de vida, nutricionistas e, assim, quando o meu Deus maior mandou o sinal, ela chegou!</p>
@@ -467,9 +517,218 @@ body { font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif; 
         
         
         
+        
         </div>
 
-         
+        
+    <div class="comments-section">
+      <h2>Respostas</h2>
+      
+      <div id="native-comments-list" class="native-comments-container">
+        <div id="loading-comments" style="display: flex; align-items: center; gap: 8px; color: #757575; font-size: 15px; padding: 20px 0;">
+          <style>@keyframes spin { 100% { transform: rotate(360deg); } }</style>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="animation: spin 1s linear infinite;"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path></svg>
+          Carregando respostas...
+        </div>
+      </div>
+
+      <form id="native-comment-form" class="custom-comment-form" onsubmit="return false;">
+        <h3 style="font-size: 18px; margin-bottom: 8px; font-family: Charter, serif;">Deixe seu comentário</h3>
+        
+        <div id="reply-badge" class="replying-to-badge">
+          Respondendo a <span id="reply-to-name"></span>
+          <span class="cancel-reply-btn" onclick="cancelReply()">✕</span>
+        </div>
+
+        <input type="hidden" id="comment-parent-id" value="">
+        
+        <input type="text" id="website_url_hp" name="website_url_hp" style="display:none" tabindex="-1" autocomplete="off">
+        
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <input type="text" id="comment-name" placeholder="Seu nome" required style="flex: 1; min-width: 200px;">
+          <input type="email" id="comment-email" placeholder="Seu email (não será publicado)" required style="flex: 1; min-width: 200px;">
+        </div>
+        <textarea id="comment-text" placeholder="Escreva sua resposta..." required></textarea>
+        
+        <button type="button" id="submit-comment-btn" onclick="submitNativeComment()">Enviar</button>
+        <div id="comment-status-msg" style="font-size: 14px; margin-top: 8px;"></div>
+      </form>
+
+      <script>
+        const WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbw7HH9_Vigtgfp8dW5RNh0oFkq46T9ZHtBGhZ_sT_tPBXpMtkPbwMUxx2TXYnWJRgx9sA/exec';
+        const BLOG_ID = 'camilablog';
+        const ARTICLE_SLUG = 'dez-anos-de-luta-e-amor-a-conquista-da-maternidade';
+
+        function loadComments() {
+          if(!WEBAPP_URL) return;
+          fetch(WEBAPP_URL + '?action=get_comments&blogId=' + BLOG_ID + '&slug=' + ARTICLE_SLUG)
+            .then(res => res.json())
+            .then(data => {
+              const container = document.getElementById('native-comments-list');
+              container.innerHTML = '';
+              
+              if(data.length === 0) {
+                container.innerHTML = '<p style="color: #757575; font-size: 14px;">Nenhum comentário ainda. Seja o primeiro!</p>';
+                return;
+              }
+
+              // Organiza em thread simples (pai e filho)
+              const parents = data.filter(c => !c.parentId);
+              const replies = data.filter(c => c.parentId);
+
+              parents.forEach(parent => {
+                container.appendChild(createCommentNode(parent));
+                // Anexa as respostas logo abaixo do pai
+                replies.filter(r => r.parentId === parent.id).forEach(reply => {
+                  container.appendChild(createCommentNode(reply, true));
+                });
+              });
+
+              // ========================================================
+              // NOVA LÓGICA: Rolar até a âncora (Hash) após carregar
+              // ========================================================
+              if (window.location.hash) {
+                // Remove o '#' do início para pegar só o ID
+                const targetId = window.location.hash.substring(1); 
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                  // Um pequeno delay de 100ms garante que o navegador terminou de pintar o HTML na tela
+                  setTimeout(() => {
+                    // Rola a tela suavemente até o elemento ficar no centro
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    
+                    // Toque de mestre: destaca o comentário temporariamente com um fundo verde bem clarinho
+                    targetElement.style.transition = 'background-color 1s ease-out';
+                    targetElement.style.backgroundColor = 'rgba(26, 137, 23, 0.1)'; 
+                    
+                    // Remove o destaque após 2 segundos
+                    setTimeout(() => {
+                      targetElement.style.backgroundColor = 'transparent';
+                    }, 2000);
+                  }, 100);
+                }
+              }
+              // ========================================================
+
+            })
+            .catch(err => console.error('Erro ao carregar comentários', err));
+        }
+
+        function createCommentNode(c, isReply = false) {
+          const div = document.createElement('div');
+          div.className = 'comment-item' + (isReply ? ' is-reply' : '');
+          
+          // NOVA LINHA: Adiciona o ID para a âncora funcionar
+          div.id = 'comment-' + c.id; 
+          
+          const dateStr = new Date(c.date).toLocaleDateString();
+          
+          div.innerHTML = `
+            <div class="comment-header">
+              <span class="comment-author">${escapeHTML(c.name)}</span>
+              <span class="comment-date">${dateStr}</span>
+            </div>
+            <div class="comment-body">${escapeHTML(c.comment)}</div>
+            ${!isReply ? `<button class="comment-reply-btn" onclick="setReply('${c.id}', '${escapeHTML(c.name)}')">Responder</button>` : ''}
+          `;
+          return div;
+        }
+
+        function escapeHTML(str) {
+          return str.replace(/[&<>'"]/g, tag => ({
+            '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
+          }[tag]));
+        }
+
+        function setReply(parentId, parentName) {
+          document.getElementById('comment-parent-id').value = parentId;
+          document.getElementById('reply-to-name').innerText = parentName;
+          document.getElementById('reply-badge').style.display = 'flex';
+          document.getElementById('comment-text').focus();
+        }
+
+        function cancelReply() {
+          document.getElementById('comment-parent-id').value = '';
+          document.getElementById('reply-badge').style.display = 'none';
+        }
+
+        function submitNativeComment() {
+          const btn = document.getElementById('submit-comment-btn');
+          const msg = document.getElementById('comment-status-msg');
+          
+          const name = document.getElementById('comment-name').value;
+          const email = document.getElementById('comment-email').value;
+          const text = document.getElementById('comment-text').value;
+          const honeypot = document.getElementById('website_url_hp').value;
+          const parentId = document.getElementById('comment-parent-id').value;
+
+          if(!name || !email || !text) {
+            msg.style.color = 'red';
+            msg.innerText = 'Por favor, preencha todos os campos.';
+            return;
+          }
+
+          btn.disabled = true;
+          msg.style.color = '#1a8917';
+          msg.innerText = 'Enviando...';
+
+          const payload = {
+            action: 'comment',
+            blogId: BLOG_ID,
+            slug: ARTICLE_SLUG,
+            name: name,
+            email: email,
+            comment: text,
+            parentId: parentId,
+            honeypot: honeypot
+          };
+
+          fetch(WEBAPP_URL, {
+            method: 'POST',
+            body: JSON.stringify(payload)
+          })
+          .then(res => res.json())
+          .then(data => {
+            if(data.success) {
+              msg.innerText = 'Comentário publicado com sucesso!';
+              document.getElementById('native-comment-form').reset();
+              cancelReply();
+              
+              // NOVA LINHA: Puxa os comentários de novo para o usuário 
+              // ver o que acabou de escrever sem precisar dar F5 na página
+              loadComments(); 
+            } else {
+              msg.style.color = 'red';
+              msg.innerText = 'Erro ao enviar. Tente novamente.';
+            }
+          })
+          .catch(() => {
+            msg.style.color = 'red';
+            msg.innerText = 'Erro de conexão.';
+          })
+          .finally(() => btn.disabled = false);
+        }
+
+        // Carrega os comentários e gerencia o scroll inicial
+        document.addEventListener('DOMContentLoaded', () => {
+          // Se o usuário veio de um link de e-mail (com hash de comentário),
+          // desce a tela imediatamente para a seção de comentários para ele ver o "Carregando..."
+          if (window.location.hash && window.location.hash.startsWith('#comment-')) {
+            const commentsSection = document.querySelector('.comments-section');
+            if (commentsSection) {
+              // 'auto' faz o pulo ser instantâneo, sem animação, 
+              // para o usuário já "nascer" no lugar certo da página
+              commentsSection.scrollIntoView({ behavior: 'auto' }); 
+            }
+          }
+          
+          // Agora sim, chama a API do Google Sheets
+          loadComments();
+        });        
+      </script>
+    </div>
+   
 
       </div>
     </div>
@@ -496,7 +755,7 @@ body { font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif; 
         btn.disabled = true;
         msg.textContent = '';
         msg.className = 'newsletter-message';
-        var WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbw7HH9_Vigtgfp8dW5RNh0oFkq46T9ZHtBGhZ_sT_tPBXpMtkPbwMUxx2TXYnWJRgx9sA/exec';
+        var WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbzhe08vhP5f-yqYmQ87mS7pN1c35usLNSw8782VRESX/dev';
         fetch(WEBAPP_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'text/plain;charset=utf-8' },
