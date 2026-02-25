@@ -507,11 +507,13 @@ body { font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif; 
           
           
           
+          
           <p>A minha linda jornada para chegar à tão sonhada maternidade.</p>
 <p>Sempre digo que foi linda porque, desde o primeiro momento, eu sempre soube que um dia seria mamãe.</p>
 <p>Foram alguns bons anos, em torno de 10 anos, 9 cirurgias de endometriose, uma equipe de mais de 30 médicos, 3 clínicas, acupunturista, várias tecnologias, muita mudança de vida, nutricionistas e, assim, quando o meu Deus maior mandou o sinal, ela chegou!</p>
 <p>Chegou meu laço 🎀 de fita linda, carinhosa, um encontro de alma e foi aí que 3 corações se encontraram. Hoje eu digo que faria tudo novamente, porque minha família é meu maior sonho realizado ❤.</p>
 
+        
         
         
         
@@ -753,18 +755,42 @@ body { font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif; 
         var lang = document.getElementById('newsletter-lang').value;
         var btn = document.getElementById('newsletter-btn');
         var msg = document.getElementById('newsletter-message');
+        
         if (!email) return;
+        
         btn.disabled = true;
-        msg.textContent = '';
+        msg.textContent = 'Inscrevendo...';
         msg.className = 'newsletter-message';
-        var WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbzhe08vhP5f-yqYmQ87mS7pN1c35usLNSw8782VRESX/dev';
+        
+        var WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbw7HH9_Vigtgfp8dW5RNh0oFkq46T9ZHtBGhZ_sT_tPBXpMtkPbwMUxx2TXYnWJRgx9sA/exec';
+        
+        if (!WEBAPP_URL || WEBAPP_URL === 'undefined') {
+          msg.textContent = "Erro: WEBAPP_URL está vazia. Rode storeWebAppUrl() no painel.";
+          msg.className = 'newsletter-message error';
+          btn.disabled = false;
+          return;
+        }
+
         fetch(WEBAPP_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'text/plain;charset=utf-8' },
           body: JSON.stringify({ email: email, lang: lang, blogId: 'camilablog' })
-        }).then(function(r) {
-          return r.json();
-        }).then(function(data) {
+        })
+        .then(function(r) {
+          // Lida com o erro se a resposta não for 200 OK (ex: erro de permissão ou CORS)
+          if (!r.ok) throw new Error('Falha na rede: Status ' + r.status);
+          return r.text(); // Pega como texto puro primeiro para podermos debugar
+        })
+        .then(function(text) {
+          console.log("Resposta do servidor:", text);
+          var data;
+          
+          try {
+             data = JSON.parse(text);
+          } catch(e) {
+             throw new Error('Servidor não retornou JSON válido. Resposta: ' + text.substring(0, 50) + '...');
+          }
+
           if (data.success) {
             msg.textContent = "Inscrição realizada com sucesso!";
             msg.className = 'newsletter-message success';
@@ -773,13 +799,17 @@ body { font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif; 
             msg.textContent = "Este email já está inscrito.";
             msg.className = 'newsletter-message error';
           } else {
-            msg.textContent = "Erro ao inscrever. Tente novamente.";
+            // Imprime na tela O MOTIVO exato retornado pelo backend
+            msg.textContent = "Erro do App Script: " + (data.error || "Erro desconhecido.");
             msg.className = 'newsletter-message error';
           }
-        }).catch(function() {
-          msg.textContent = "Erro ao inscrever. Tente novamente.";
+        })
+        .catch(function(err) {
+          msg.textContent = "Erro de conexão: " + err.message;
           msg.className = 'newsletter-message error';
-        }).finally(function() {
+          console.error("Erro completo:", err);
+        })
+        .finally(function() {
           btn.disabled = false;
         });
       }
